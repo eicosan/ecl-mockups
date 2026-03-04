@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eirini C. Lika LL.M. — Rechtsanw&auml;ltin f&uuml;r KI-Regulierung &amp; Datenschutz</title>
+  <meta name="description" content="Spezialisierte Rechtsberatung zu EU AI Act, DSGVO und internationaler KI-Governance. Boutique-Kanzlei in M&uuml;nchen.">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CSS Custom Properties
+       ======================================== */
+    :root {
+      --bg-warm: #FAF9F7;
+      --primary-dark: #1B3A2D;
+      --accent-copper: #B87333;
+      --accent-copper-hover: #A0622B;
+      --text-primary: #1A1A1A;
+      --text-secondary: #5D5D5D;
+      --white: #FFFFFF;
+      --border-light: rgba(27, 58, 45, 0.1);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+      --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --max-width: 1200px;
+      --header-height: 72px;
+      --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ========================================
+       Reset & Base
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background-color: var(--bg-warm);
+      line-height: 1.7;
+      font-size: 16px;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color var(--transition-base);
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* ========================================
+       Utility Classes
+       ======================================== */
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-copper);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: 600px;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s var(--transition-base), transform 0.7s var(--transition-base);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================
+       Header
+       ======================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--header-height);
+      display: flex;
+      align-items: center;
+      transition: background var(--transition-base), box-shadow var(--transition-base);
+    }
+
+    .site-header.scrolled {
+      background: rgba(250, 249, 247, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .logo svg {
+      display: block;
+    }
+
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-desktop a {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--text-primary);
+      position: relative;
+      padding: 4px 0;
+    }
+
+    .nav-desktop a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent-copper);
+      transition: width var(--transition-base);
+    }
+
+    .nav-desktop a:hover::after {
+      width: 100%;
+    }
+
+    .nav-desktop a:hover {
+      color: var(--primary-dark);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      gap: 6px;
+      z-index: 1100;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      transition: transform var(--transition-base), opacity var(--transition-base);
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Mobile Navigation Overlay */
+    .nav-mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-warm);
+      z-index: 1050;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .nav-mobile-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .nav-mobile-overlay a {
+      font-family: var(--font-heading);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--primary-dark);
+      transition: color var(--transition-base);
+    }
+
+    .nav-mobile-overlay a:hover {
+      color: var(--accent-copper);
+    }
+
+    /* ========================================
+       Hero Section
+       ======================================== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: var(--header-height);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 15%;
+      right: -5%;
+      width: 400px;
+      height: 400px;
+      border: 1px solid rgba(184, 115, 51, 0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 20%;
+      right: 8%;
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(184, 115, 51, 0.06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      padding: 60px 0;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-copper);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 40px;
+      height: 1.5px;
+      background: var(--accent-copper);
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(36px, 5.5vw, 58px);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--primary-dark);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(16px, 2vw, 19px);
+      font-weight: 300;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 620px;
+      margin-bottom: 44px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 32px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 4px;
+      transition: all var(--transition-base);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent-copper);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-copper-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(184, 115, 51, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-dark);
+      border: 1.5px solid var(--primary-dark);
+    }
+
+    .btn-outline:hover {
+      background: var(--primary-dark);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .hero-decoration {
+      position: absolute;
+      bottom: 60px;
+      left: 24px;
+      width: 1.5px;
+      height: 80px;
+      background: linear-gradient(to bottom, var(--accent-copper), transparent);
+    }
+
+    /* ========================================
+       Trust Strip
+       ======================================== */
+    .trust-strip {
+      background: var(--primary-dark);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+
+    .trust-strip-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .trust-item {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      padding: 6px 28px;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .trust-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* ========================================
+       Practice Areas
+       ======================================== */
+    .practice-areas {
+      padding: 120px 0;
+    }
+
+    .practice-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .practice-header .section-subtitle {
+      margin: 0 auto;
+    }
+
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .practice-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 40px 32px;
+      transition: all var(--transition-base);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .practice-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-copper);
+      transform: scaleX(0);
+      transition: transform var(--transition-base);
+      transform-origin: left;
+    }
+
+    .practice-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .practice-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .practice-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+      background: rgba(184, 115, 51, 0.08);
+      border-radius: 8px;
+      color: var(--accent-copper);
+    }
+
+    .practice-card h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .practice-card p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       Counter Section
+       ======================================== */
+    .counters-section {
+      background: var(--primary-dark);
+      padding: 80px 0;
+    }
+
+    .counters-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .counter-item {
+      position: relative;
+    }
+
+    .counter-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .counter-number {
+      font-family: var(--font-heading);
+      font-size: clamp(36px, 5vw, 52px);
+      font-weight: 600;
+      color: var(--accent-copper);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .counter-label {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    /* ========================================
+       About Section
+       ======================================== */
+    .about-section {
+      background: var(--primary-dark);
+      padding: 100px 0;
+      color: var(--white);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text .section-label {
+      color: var(--accent-copper);
+    }
+
+    .about-text .section-title {
+      color: var(--white);
+    }
+
+    .about-description {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(250, 249, 247, 0.85);
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .about-qualifications {
+      margin-bottom: 40px;
+    }
+
+    .about-qualifications li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 10px 0;
+      font-size: 15px;
+      color: rgba(250, 249, 247, 0.9);
+      font-weight: 400;
+    }
+
+    .about-qualifications li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      min-width: 8px;
+      border-radius: 50%;
+      background: var(--accent-copper);
+      margin-top: 7px;
+    }
+
+    .about-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-copper);
+      font-weight: 500;
+      font-size: 15px;
+      transition: gap var(--transition-base);
+    }
+
+    .about-link:hover {
+      gap: 14px;
+    }
+
+    .about-image-wrapper {
+      position: relative;
+    }
+
+    .about-image-frame {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .about-image-frame::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      bottom: 12px;
+      left: 12px;
+      border: 2px solid var(--accent-copper);
+      border-radius: 6px;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    .about-image-frame img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      position: relative;
+      z-index: 1;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Placeholder styling in case image doesn't load */
+    .about-image-frame img[src]::before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-top: 133%;
+      background: linear-gradient(135deg, rgba(184,115,51,0.1), rgba(27,58,45,0.3));
+    }
+
+    /* ========================================
+       Insights Section
+       ======================================== */
+    .insights-section {
+      padding: 120px 0;
+      background: var(--bg-warm);
+    }
+
+    .insights-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .insights-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-copper);
+      font-weight: 500;
+      font-size: 15px;
+      transition: gap var(--transition-base);
+      padding-bottom: 4px;
+    }
+
+    .insights-link:hover {
+      gap: 14px;
+    }
+
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .insight-card {
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: all var(--transition-base);
+    }
+
+    .insight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .insight-card-body {
+      padding: 32px 28px;
+    }
+
+    .insight-category {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-copper);
+      background: rgba(184, 115, 51, 0.08);
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 18px;
+    }
+
+    .insight-card h3 {
+      font-family: var(--font-heading);
+      font-size: 19px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+
+    .insight-card p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+
+    .insight-date {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
+    /* ========================================
+       CTA Section
+       ======================================== */
+    .cta-section {
+      padding: 100px 0;
+      background: var(--bg-warm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(184,115,51,0.04) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-inner {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-inner .section-title {
+      color: var(--primary-dark);
+    }
+
+    .cta-description {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+
+    .cta-email {
+      display: inline-block;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--accent-copper);
+      margin-bottom: 36px;
+      position: relative;
+    }
+
+    .cta-email::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--accent-copper);
+      opacity: 0.4;
+    }
+
+    .cta-decoration-left,
+    .cta-decoration-right {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgba(184, 115, 51, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-decoration-left {
+      top: 20%;
+      left: 8%;
+    }
+
+    .cta-decoration-right {
+      bottom: 15%;
+      right: 10%;
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .site-footer {
+      background: var(--primary-dark);
+      color: rgba(250, 249, 247, 0.8);
+      padding: 72px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-brand {
+      max-width: 320px;
+    }
+
+    .footer-brand .footer-logo {
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(250, 249, 247, 0.6);
+    }
+
+    .footer-heading {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(250, 249, 247, 0.65);
+      transition: color var(--transition-base);
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-copper);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+      font-size: 14px;
+      color: rgba(250, 249, 247, 0.65);
+    }
+
+    .footer-contact-item svg {
+      min-width: 16px;
+      margin-top: 3px;
+    }
+
+    .footer-bottom {
+      padding: 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: rgba(250, 249, 247, 0.45);
+    }
+
+    .footer-disclaimer {
+      font-size: 12px;
+      color: rgba(250, 249, 247, 0.35);
+      max-width: 500px;
+      text-align: right;
+      line-height: 1.5;
+    }
+
+    /* ========================================
+       Responsive Design
+       ======================================== */
+    @media (max-width: 1024px) {
+      .practice-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
+        gap: 48px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --header-height: 64px;
+      }
+
+      .nav-desktop {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-content {
+        padding: 40px 0 60px;
+      }
+
+      .hero::before,
+      .hero::after {
+        display: none;
+      }
+
+      .trust-strip-inner {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .trust-item {
+        padding: 6px 16px;
+        font-size: 12px;
+      }
+
+      .trust-item::after {
+        display: none;
+      }
+
+      .practice-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .practice-card {
+        padding: 32px 24px;
+      }
+
+      .counters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .counter-item::after {
+        display: none;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .about-image-wrapper {
+        order: -1;
+        max-width: 380px;
+        margin: 0 auto;
+      }
+
+      .insights-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-disclaimer {
+        text-align: center;
+      }
+
+      .cta-decoration-left,
+      .cta-decoration-right {
+        display: none;
+      }
+
+      .insights-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-ctas {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .counters-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+    }
+
+    /* ========================================
+       Print Styles
+       ======================================== */
+    @media print {
+      .site-header,
+      .hamburger,
+      .nav-mobile-overlay,
+      .hero-decoration,
+      .cta-decoration-left,
+      .cta-decoration-right {
+        display: none !important;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 0;
+      }
+
+      body {
+        font-size: 12pt;
+        color: #000;
+        background: #fff;
+      }
+
+      .trust-strip,
+      .counters-section,
+      .about-section,
+      .site-footer {
+        background: #fff !important;
+        color: #000 !important;
+      }
+
+      .trust-item,
+      .counter-number,
+      .counter-label,
+      .about-description,
+      .about-qualifications li,
+      .about-text .section-title {
+        color: #000 !important;
+      }
+
+      .practice-card,
+      .insight-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      a::after {
+        content: " (" attr(href) ")" !important;
+        font-size: 10pt;
+        color: #666;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       Header
+       ======================================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="Eirini C. Lika - Startseite">
+        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none">
+          <path d="M22 4C12 4 5 11 5 21s7 17 17 17c3 0 7-1 9-2" stroke="#B87333" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M28 8C24 5.5 19 5.5 15 8s-6 7-6 13c0 6 2 10 6 13" stroke="#B87333" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+          <text x="14" y="26" font-family="Playfair Display, Georgia, serif" font-size="15" font-weight="600" fill="#B87333" font-style="italic">L</text>
+          <text x="40" y="26" font-family="Inter, sans-serif" font-size="14" font-weight="300" fill="#1B3A2D" letter-spacing="0.15em">EIRINI C. LIKA</text>
+          <text x="40" y="36" font-family="Inter, sans-serif" font-size="7" font-weight="400" fill="#5D5D5D" letter-spacing="0.2em">RECHTSANW&#xC4;LTIN &#xB7; LL.M.</text>
+        </svg>
+      </a>
+
+      <nav class="nav-desktop">
+        <a href="#taetigkeitsbereiche">T&auml;tigkeitsbereiche</a>
+        <a href="#ueber-mich">&Uuml;ber mich</a>
+        <a href="#insights">Insights</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <div class="nav-mobile-overlay" id="mobile-nav">
+    <a href="#taetigkeitsbereiche" class="mobile-nav-link">T&auml;tigkeitsbereiche</a>
+    <a href="#ueber-mich" class="mobile-nav-link">&Uuml;ber mich</a>
+    <a href="#insights" class="mobile-nav-link">Insights</a>
+    <a href="#kontakt" class="mobile-nav-link">Kontakt</a>
+  </div>
+
+
+  <!-- ========================================
+       Hero Section
+       ======================================== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-label">Boutique-Kanzlei f&uuml;r KI-Regulierung</div>
+        <h1>Rechtliche Klarheit f&uuml;r die Zukunft der K&uuml;nstlichen Intelligenz</h1>
+        <p class="hero-subtitle">
+          Spezialisierte Beratung zu EU AI Act, DSGVO und internationaler KI-Governance &mdash;
+          f&uuml;r Unternehmen, die verantwortungsvolle Innovation vorantreiben.
+        </p>
+        <div class="hero-ctas">
+          <a href="#kontakt" class="btn btn-primary">Erstberatung vereinbaren</a>
+          <a href="#taetigkeitsbereiche" class="btn btn-outline">T&auml;tigkeitsbereiche</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-decoration" aria-hidden="true"></div>
+  </section>
+
+
+  <!-- ========================================
+       Trust Strip
+       ======================================== -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-strip-inner">
+        <div class="trust-item">Zugelassen in Griechenland &amp; Deutschland</div>
+        <div class="trust-item">LL.M. International Business Law</div>
+        <div class="trust-item">Zertifizierte Datenschutzbeauftragte</div>
+        <div class="trust-item">EU AI Act Spezialistin</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       Practice Areas
+       ======================================== -->
+  <section class="practice-areas" id="taetigkeitsbereiche">
+    <div class="container">
+      <div class="practice-header reveal">
+        <span class="section-label">Expertise</span>
+        <h2 class="section-title">T&auml;tigkeitsbereiche</h2>
+        <p class="section-subtitle">Spezialisierte Rechtsberatung an der Schnittstelle von Technologie, K&uuml;nstlicher Intelligenz und europ&auml;ischem Recht.</p>
+      </div>
+
+      <div class="practice-grid">
+        <!-- Card 1 -->
+        <div class="practice-card reveal">
+          <div class="practice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+              <path d="M2 17l10 5 10-5"/>
+              <path d="M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3>EU AI Act Compliance</h3>
+          <p>Umfassende Beratung zur Einhaltung der EU-Verordnung &uuml;ber K&uuml;nstliche Intelligenz &mdash; von der Risikoklassifizierung bis zur CE-Kennzeichnung.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="practice-card reveal">
+          <div class="practice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+              <path d="M7 11V7a5 5 0 0110 0v4"/>
+              <circle cx="12" cy="16" r="1"/>
+            </svg>
+          </div>
+          <h3>DSGVO &amp; Datenschutz</h3>
+          <p>Ganzheitliche Datenschutzberatung f&uuml;r Unternehmen &mdash; von der Implementierung technischer und organisatorischer Ma&szlig;nahmen bis zur Vertretung bei Aufsichtsbeh&ouml;rden.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="practice-card reveal">
+          <div class="practice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+            </svg>
+          </div>
+          <h3>KI-Governance</h3>
+          <p>Entwicklung ma&szlig;geschneiderter Governance-Frameworks f&uuml;r den verantwortungsvollen Einsatz von KI-Systemen in Unternehmen.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="practice-card reveal">
+          <div class="practice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
+          <h3>Internationale Regulierung</h3>
+          <p>Grenz&uuml;berschreitende Beratung zur Einhaltung internationaler KI- und Datenschutzvorschriften in der EU, Deutschland und Griechenland.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="practice-card reveal">
+          <div class="practice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3>Digitale Regulierung</h3>
+          <p>Beratung zum Digital Services Act, Data Act und weiteren EU-Digitalrechtsakten mit Auswirkungen auf datengetriebene Gesch&auml;ftsmodelle.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="practice-card reveal">
+          <div class="practice-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+              <path d="M16 3.13a4 4 0 010 7.75"/>
+            </svg>
+          </div>
+          <h3>Schulungen &amp; Workshops</h3>
+          <p>Ma&szlig;geschneiderte Schulungsprogramme f&uuml;r F&uuml;hrungskr&auml;fte und Teams zu KI-Compliance, Datenschutz und regulatorischen Anforderungen.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       Counter Section
+       ======================================== -->
+  <section class="counters-section" id="counters">
+    <div class="container">
+      <div class="counters-grid">
+        <div class="counter-item reveal">
+          <div class="counter-number" data-target="15" data-suffix="+">0</div>
+          <div class="counter-label">Jahre Erfahrung</div>
+        </div>
+        <div class="counter-item reveal">
+          <div class="counter-number" data-target="2" data-suffix="">0</div>
+          <div class="counter-label">Jurisdiktionen (EU)</div>
+        </div>
+        <div class="counter-item reveal">
+          <div class="counter-number" data-target="200" data-suffix="+">0</div>
+          <div class="counter-label">Beratungsprojekte</div>
+        </div>
+        <div class="counter-item reveal">
+          <div class="counter-number" data-target="50" data-suffix="+">0</div>
+          <div class="counter-label">Schulungen &amp; Vortr&auml;ge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       About Section
+       ======================================== -->
+  <section class="about-section" id="ueber-mich">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="section-label">Zur Person</span>
+          <h2 class="section-title">&Uuml;ber Eirini C. Lika</h2>
+          <p class="about-description">
+            Als in Griechenland und Deutschland zugelassene Rechtsanw&auml;ltin verbinde ich tiefgreifende Expertise
+            im europ&auml;ischen Regulierungsrecht mit einem besonderen Fokus auf K&uuml;nstliche Intelligenz und Datenschutz.
+            Meine Mandanten &mdash; von innovativen Startups bis zu internationalen Konzernen &mdash; sch&auml;tzen die
+            Kombination aus juristischer Pr&auml;zision und technischem Verst&auml;ndnis, die ich in jede Beratung einbringe.
+          </p>
+          <ul class="about-qualifications">
+            <li>Rechtsanw&auml;ltin (Griechenland &amp; Deutschland)</li>
+            <li>LL.M. International Business Law</li>
+            <li>Zertifizierte Datenschutzbeauftragte (T&Uuml;V)</li>
+            <li>Mitglied der Rechtsanwaltskammer M&uuml;nchen</li>
+          </ul>
+          <a href="#" class="about-link">
+            Mehr erfahren
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="1" y1="8" x2="14" y2="8"/>
+              <polyline points="9 3 14 8 9 13"/>
+            </svg>
+          </a>
+        </div>
+        <div class="about-image-wrapper reveal">
+          <div class="about-image-frame">
+            <img src="../assets/eirini-portrait.png" alt="Eirini C. Lika" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       Insights Section
+       ======================================== -->
+  <section class="insights-section" id="insights">
+    <div class="container">
+      <div class="insights-header reveal">
+        <div>
+          <span class="section-label">Wissen &amp; Perspektiven</span>
+          <h2 class="section-title">Aktuelle Insights</h2>
+        </div>
+        <a href="#" class="insights-link">
+          Alle Insights ansehen
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="1" y1="8" x2="14" y2="8"/>
+            <polyline points="9 3 14 8 9 13"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="insights-grid">
+        <!-- Article 1 -->
+        <article class="insight-card reveal">
+          <div class="insight-card-body">
+            <span class="insight-category">EU AI Act</span>
+            <h3>Der EU AI Act tritt in Kraft: Was Unternehmen jetzt wissen m&uuml;ssen</h3>
+            <p>Ein praktischer Leitfaden zu den wichtigsten Pflichten und Fristen der neuen KI-Verordnung.</p>
+            <time class="insight-date" datetime="2026-02-15">15. Februar 2026</time>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="insight-card reveal">
+          <div class="insight-card-body">
+            <span class="insight-category">Datenschutz</span>
+            <h3>DSGVO-Bu&szlig;gelder 2025: Trends und Lehren f&uuml;r Unternehmen</h3>
+            <p>Analyse der bedeutendsten Durchsetzungsma&szlig;nahmen und was sie f&uuml;r Ihre Compliance-Strategie bedeuten.</p>
+            <time class="insight-date" datetime="2026-01-28">28. Januar 2026</time>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="insight-card reveal">
+          <div class="insight-card-body">
+            <span class="insight-category">KI-Governance</span>
+            <h3>KI-Governance in der Praxis: Ein Framework f&uuml;r den Mittelstand</h3>
+            <p>Wie mittelst&auml;ndische Unternehmen ein effektives KI-Governance-System aufbauen k&ouml;nnen.</p>
+            <time class="insight-date" datetime="2026-01-10">10. Januar 2026</time>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       CTA Section
+       ======================================== -->
+  <section class="cta-section" id="kontakt">
+    <div class="cta-decoration-left" aria-hidden="true"></div>
+    <div class="cta-decoration-right" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-inner reveal">
+        <span class="section-label">Kontakt</span>
+        <h2 class="section-title">Lassen Sie uns sprechen</h2>
+        <p class="cta-description">
+          Stehen Sie vor regulatorischen Herausforderungen im Bereich KI oder Datenschutz?
+          Ich unterst&uuml;tze Sie dabei, rechtliche Anforderungen in strategische Vorteile zu verwandeln.
+        </p>
+        <a href="mailto:kontakt@eiriniclika.com" class="cta-email">kontakt@eiriniclika.com</a>
+        <br><br>
+        <a href="mailto:kontakt@eiriniclika.com" class="btn btn-primary">Erstberatung vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none">
+              <path d="M22 4C12 4 5 11 5 21s7 17 17 17c3 0 7-1 9-2" stroke="#B87333" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+              <path d="M28 8C24 5.5 19 5.5 15 8s-6 7-6 13c0 6 2 10 6 13" stroke="#B87333" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+              <text x="14" y="26" font-family="Playfair Display, Georgia, serif" font-size="15" font-weight="600" fill="#B87333" font-style="italic">L</text>
+              <text x="40" y="26" font-family="Inter, sans-serif" font-size="14" font-weight="300" fill="#FAF9F7" letter-spacing="0.15em">EIRINI C. LIKA</text>
+              <text x="40" y="36" font-family="Inter, sans-serif" font-size="7" font-weight="400" fill="rgba(250,249,247,0.7)" letter-spacing="0.2em">RECHTSANW&#xC4;LTIN &#xB7; LL.M.</text>
+            </svg>
+          </div>
+          <p>Spezialisierte Rechtsberatung an der Schnittstelle von K&uuml;nstlicher Intelligenz, Datenschutz und europ&auml;ischem Regulierungsrecht.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">T&auml;tigkeitsbereiche</h4>
+          <ul class="footer-links">
+            <li><a href="#taetigkeitsbereiche">EU AI Act Compliance</a></li>
+            <li><a href="#taetigkeitsbereiche">DSGVO &amp; Datenschutz</a></li>
+            <li><a href="#taetigkeitsbereiche">KI-Governance</a></li>
+            <li><a href="#taetigkeitsbereiche">Internationale Regulierung</a></li>
+            <li><a href="#taetigkeitsbereiche">Digitale Regulierung</a></li>
+            <li><a href="#taetigkeitsbereiche">Schulungen &amp; Workshops</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">Kontakt &amp; Rechtliches</h4>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(250,249,247,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+            <a href="mailto:kontakt@eiriniclika.com">kontakt@eiriniclika.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(250,249,247,0.5)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <span>M&uuml;nchen, Deutschland</span>
+          </div>
+          <ul class="footer-links" style="margin-top: 20px;">
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutzerkl&auml;rung</a></li>
+            <li><a href="#">Anwaltsverzeichnis</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          &copy; 2026 Eirini C. Lika LL.M. &mdash; Alle Rechte vorbehalten.
+        </div>
+        <div class="footer-disclaimer">
+          Diese Website dient ausschlie&szlig;lich der allgemeinen Information und stellt keine Rechtsberatung dar.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========================================
+       JavaScript
+       ======================================== -->
+  <script>
+    (function() {
+      'use strict';
+
+      // ----------------------------------------
+      // Header scroll effect
+      // ----------------------------------------
+      const header = document.getElementById('site-header');
+      let lastScroll = 0;
+
+      function handleHeaderScroll() {
+        const currentScroll = window.pageYOffset;
+        if (currentScroll > 40) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+        lastScroll = currentScroll;
+      }
+
+      window.addEventListener('scroll', handleHeaderScroll, { passive: true });
+      handleHeaderScroll();
+
+      // ----------------------------------------
+      // Mobile Navigation
+      // ----------------------------------------
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileLinks = mobileNav.querySelectorAll('a');
+
+      function toggleMobileNav() {
+        const isOpen = mobileNav.classList.contains('open');
+        if (isOpen) {
+          mobileNav.classList.remove('open');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        } else {
+          mobileNav.classList.add('open');
+          hamburger.classList.add('active');
+          hamburger.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        }
+      }
+
+      hamburger.addEventListener('click', toggleMobileNav);
+
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileNav.classList.remove('open');
+          hamburger.classList.remove('active');
+          hamburger.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+
+      // ----------------------------------------
+      // Scroll Reveal (IntersectionObserver)
+      // ----------------------------------------
+      const revealElements = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+          revealObserver.observe(el);
+        });
+      } else {
+        // Fallback: show all immediately
+        revealElements.forEach(function(el) {
+          el.classList.add('visible');
+        });
+      }
+
+      // ----------------------------------------
+      // Counter Animation (IntersectionObserver)
+      // ----------------------------------------
+      var countersAnimated = false;
+
+      function animateCounter(element) {
+        var target = parseInt(element.getAttribute('data-target'), 10);
+        var suffix = element.getAttribute('data-suffix') || '';
+        var duration = 2000;
+        var startTime = null;
+
+        function easeOutQuart(t) {
+          return 1 - Math.pow(1 - t, 4);
+        }
+
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var easedProgress = easeOutQuart(progress);
+          var current = Math.floor(easedProgress * target);
+          element.textContent = current + suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            element.textContent = target + suffix;
+          }
+        }
+
+        requestAnimationFrame(step);
+      }
+
+      var counterElements = document.querySelectorAll('.counter-number');
+
+      if ('IntersectionObserver' in window) {
+        var counterObserver = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting && !countersAnimated) {
+              countersAnimated = true;
+              counterElements.forEach(function(counter) {
+                animateCounter(counter);
+              });
+              counterObserver.disconnect();
+            }
+          });
+        }, {
+          threshold: 0.3
+        });
+
+        var countersSection = document.getElementById('counters');
+        if (countersSection) {
+          counterObserver.observe(countersSection);
+        }
+      } else {
+        // Fallback: show final values immediately
+        counterElements.forEach(function(counter) {
+          var target = counter.getAttribute('data-target');
+          var suffix = counter.getAttribute('data-suffix') || '';
+          counter.textContent = target + suffix;
+        });
+      }
+
+      // ----------------------------------------
+      // Smooth scroll for anchor links
+      // ----------------------------------------
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var href = this.getAttribute('href');
+          if (href === '#') return;
+
+          var targetEl = document.querySelector(href);
+          if (targetEl) {
+            e.preventDefault();
+            var headerOffset = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height'), 10) || 72;
+            var elementPosition = targetEl.getBoundingClientRect().top;
+            var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>

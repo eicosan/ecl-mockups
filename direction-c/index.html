@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eirini C. Lika LL.M. | Rechtsanw&auml;ltin f&uuml;r KI-Regulierung &amp; Datenschutz</title>
+  <meta name="description" content="Spezialisierte Rechtsberatung an der Schnittstelle von K&uuml;nstlicher Intelligenz, Datenschutz und europ&auml;ischer Regulierung. Kanzlei in M&uuml;nchen.">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CSS Custom Properties
+       ======================================== */
+    :root {
+      --bg-cream: #FDFBF7;
+      --bg-cream-dark: #F7F3ED;
+      --primary-dark: #0F1B2D;
+      --accent-gold: #C9A84C;
+      --gold-muted: rgba(201, 168, 76, 0.3);
+      --text-primary: #0F1B2D;
+      --text-secondary: #4A5568;
+      --text-muted: #8B9AAF;
+      --dark-section: #0F1B2D;
+      --on-dark: #FDFBF7;
+      --on-dark-muted: rgba(253, 251, 247, 0.6);
+      --border: #E8E2D6;
+      --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --max-width: 1200px;
+      --max-width-narrow: 800px;
+    }
+
+    /* ========================================
+       Reset & Base
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-cream);
+      color: var(--text-primary);
+      line-height: 1.7;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ========================================
+       Utility Classes
+       ======================================== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .container--narrow {
+      max-width: var(--max-width-narrow);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 24px;
+    }
+
+    .section-label--dark {
+      color: var(--on-dark-muted);
+    }
+
+    .gold-line {
+      width: 60px;
+      height: 1px;
+      background-color: var(--accent-gold);
+      border: none;
+    }
+
+    .gold-line--short {
+      width: 40px;
+    }
+
+    .gold-line--center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Scroll-in animation */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========================================
+       Header
+       ======================================== */
+    .header {
+      background-color: var(--bg-cream);
+      padding: 28px 0 0 0;
+      position: relative;
+      z-index: 100;
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 24px;
+    }
+
+    .header__logo svg {
+      display: block;
+    }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .header__nav a {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+
+    .header__nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--accent-gold);
+      transition: width 0.3s ease;
+    }
+
+    .header__nav a:hover {
+      color: var(--text-primary);
+    }
+
+    .header__nav a:hover::after {
+      width: 100%;
+    }
+
+    .header__separator {
+      width: 100%;
+      height: 1px;
+      background-color: var(--accent-gold);
+      border: none;
+    }
+
+    /* Mobile hamburger */
+    .header__hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .header__hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background-color: var(--accent-gold);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .header__hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 4px);
+    }
+
+    .header__hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header__hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -4px);
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-cream);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .mobile-nav.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: 0.04em;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--accent-gold);
+    }
+
+    /* ========================================
+       Hero Section
+       ======================================== */
+    .hero {
+      padding: 160px 0 140px 0;
+      text-align: center;
+      background-color: var(--bg-cream);
+    }
+
+    .hero__gold-line {
+      width: 60px;
+      height: 1px;
+      background-color: var(--accent-gold);
+      margin: 0 auto 40px auto;
+      border: none;
+    }
+
+    .hero__label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 32px;
+    }
+
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    .hero__rule {
+      width: 40px;
+      height: 1px;
+      background-color: var(--accent-gold);
+      margin: 0 auto 32px auto;
+      border: none;
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin: 0 auto 48px auto;
+    }
+
+    .hero__cta {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      border: 1px solid var(--accent-gold);
+      padding: 16px 40px;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .hero__cta:hover {
+      background-color: var(--accent-gold);
+      color: var(--bg-cream);
+    }
+
+    /* ========================================
+       Philosophy Section
+       ======================================== */
+    .philosophy {
+      background-color: var(--bg-cream-dark);
+      padding: 120px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .philosophy::before,
+    .philosophy::after {
+      content: '';
+      position: absolute;
+      top: 40px;
+      bottom: 40px;
+      width: 1px;
+      background-color: var(--gold-muted);
+    }
+
+    .philosophy::before {
+      left: 60px;
+    }
+
+    .philosophy::after {
+      right: 60px;
+    }
+
+    .philosophy__quote {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--text-primary);
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 32px auto;
+    }
+
+    .philosophy__attribution {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--accent-gold);
+      text-align: center;
+    }
+
+    /* ========================================
+       Practice Areas
+       ======================================== */
+    .practice {
+      padding: 120px 0;
+      background-color: var(--bg-cream);
+    }
+
+    .practice__header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .practice__header .gold-line {
+      margin: 0 auto 24px auto;
+    }
+
+    .practice__list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .practice__item {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 24px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .practice__item:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .practice__number {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--accent-gold);
+      padding-top: 2px;
+    }
+
+    .practice__content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .practice__title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .practice__desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       About / Portrait Section
+       ======================================== */
+    .about {
+      background-color: var(--dark-section);
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .about__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 700px;
+    }
+
+    .about__portrait {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about__portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about__portrait::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 3px;
+      height: 100%;
+      background-color: var(--accent-gold);
+    }
+
+    .about__text {
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about__name {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 400;
+      color: var(--on-dark);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .about__title {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: var(--on-dark-muted);
+      margin-bottom: 36px;
+    }
+
+    .about__bio {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: rgba(253, 251, 247, 0.85);
+      margin-bottom: 40px;
+    }
+
+    .about__credentials {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .about__credentials li {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--on-dark-muted);
+      padding-left: 20px;
+      position: relative;
+      letter-spacing: 0.02em;
+    }
+
+    .about__credentials li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 1px;
+      background-color: var(--accent-gold);
+    }
+
+    /* ========================================
+       Publications / Insights
+       ======================================== */
+    .publications {
+      padding: 120px 0;
+      background-color: var(--bg-cream);
+    }
+
+    .publications__header {
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .publications__header .gold-line {
+      margin: 0 auto 24px auto;
+    }
+
+    .publications__list {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .publications__entry {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 40px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border);
+      align-items: start;
+    }
+
+    .publications__entry:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .publications__date {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--accent-gold);
+      letter-spacing: 0.02em;
+      padding-top: 6px;
+    }
+
+    .publications__content {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .publications__title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.3;
+    }
+
+    .publications__excerpt {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .publications__more {
+      display: block;
+      text-align: center;
+      margin-top: 60px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: var(--accent-gold);
+      transition: opacity 0.3s ease;
+    }
+
+    .publications__more:hover {
+      opacity: 0.7;
+    }
+
+    /* ========================================
+       Contact Section
+       ======================================== */
+    .contact {
+      padding: 120px 0;
+      background-color: var(--bg-cream-dark);
+      text-align: center;
+      position: relative;
+    }
+
+    .contact__gold-line {
+      width: 60px;
+      height: 1px;
+      background-color: var(--accent-gold);
+      margin: 0 auto 48px auto;
+      border: none;
+    }
+
+    .contact__heading {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+
+    .contact__text {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto 40px auto;
+    }
+
+    .contact__email {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+      transition: color 0.3s ease;
+    }
+
+    .contact__email:hover {
+      color: var(--accent-gold);
+    }
+
+    .contact__location {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      letter-spacing: 0.04em;
+    }
+
+    .contact__cta {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      border: 1px solid var(--accent-gold);
+      padding: 16px 40px;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    .contact__cta:hover {
+      background-color: var(--accent-gold);
+      color: var(--bg-cream);
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .footer {
+      background-color: var(--dark-section);
+      padding: 60px 0 40px 0;
+      position: relative;
+    }
+
+    .footer__gold-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--accent-gold);
+    }
+
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer__col-title {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--on-dark-muted);
+      margin-bottom: 20px;
+    }
+
+    .footer__col a,
+    .footer__col p {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(253, 251, 247, 0.7);
+      line-height: 2;
+      transition: color 0.3s ease;
+    }
+
+    .footer__col a:hover {
+      color: var(--accent-gold);
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(253, 251, 247, 0.1);
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer__copyright {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--on-dark-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .footer__disclaimer {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(253, 251, 247, 0.35);
+      text-align: center;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    .footer__logo {
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ========================================
+       Responsive: Tablet (768px)
+       ======================================== */
+    @media (max-width: 768px) {
+      .container,
+      .container--narrow {
+        padding: 0 28px;
+      }
+
+      .header__nav {
+        display: none;
+      }
+
+      .header__hamburger {
+        display: flex;
+      }
+
+      .mobile-nav {
+        display: flex;
+      }
+
+      .hero {
+        padding: 100px 0 90px 0;
+      }
+
+      .hero__headline {
+        font-size: 44px;
+      }
+
+      .hero__subtitle {
+        font-size: 16px;
+      }
+
+      .philosophy {
+        padding: 80px 0;
+      }
+
+      .philosophy::before {
+        left: 28px;
+      }
+
+      .philosophy::after {
+        right: 28px;
+      }
+
+      .philosophy__quote {
+        font-size: 26px;
+        max-width: 90%;
+      }
+
+      .practice {
+        padding: 80px 0;
+      }
+
+      .practice__header {
+        margin-bottom: 48px;
+      }
+
+      .practice__item {
+        grid-template-columns: 36px 1fr;
+        gap: 16px;
+        padding: 28px 0;
+      }
+
+      .practice__title {
+        font-size: 20px;
+      }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .about__portrait {
+        height: 400px;
+      }
+
+      .about__portrait::after {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        right: auto;
+      }
+
+      .about__text {
+        padding: 60px 28px;
+      }
+
+      .about__name {
+        font-size: 34px;
+      }
+
+      .publications {
+        padding: 80px 0;
+      }
+
+      .publications__entry {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .publications__date {
+        padding-top: 0;
+      }
+
+      .contact {
+        padding: 80px 0;
+      }
+
+      .contact__heading {
+        font-size: 38px;
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* ========================================
+       Responsive: Mobile (375px)
+       ======================================== */
+    @media (max-width: 480px) {
+      .container,
+      .container--narrow {
+        padding: 0 20px;
+      }
+
+      .hero {
+        padding: 80px 0 70px 0;
+      }
+
+      .hero__headline {
+        font-size: 36px;
+      }
+
+      .hero__subtitle {
+        font-size: 15px;
+        margin-bottom: 36px;
+      }
+
+      .hero__cta {
+        padding: 14px 32px;
+        font-size: 12px;
+      }
+
+      .philosophy {
+        padding: 60px 0;
+      }
+
+      .philosophy::before,
+      .philosophy::after {
+        display: none;
+      }
+
+      .philosophy__quote {
+        font-size: 22px;
+      }
+
+      .practice__item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .practice__number {
+        font-size: 16px;
+      }
+
+      .practice__title {
+        font-size: 19px;
+      }
+
+      .practice__desc {
+        font-size: 14px;
+      }
+
+      .about__portrait {
+        height: 320px;
+      }
+
+      .about__text {
+        padding: 48px 20px;
+      }
+
+      .about__name {
+        font-size: 30px;
+      }
+
+      .about__bio {
+        font-size: 15px;
+      }
+
+      .publications__title {
+        font-size: 20px;
+      }
+
+      .contact__heading {
+        font-size: 32px;
+      }
+
+      .contact__email {
+        font-size: 16px;
+      }
+
+      .contact__cta {
+        padding: 14px 32px;
+        font-size: 12px;
+      }
+
+      .footer__bottom {
+        text-align: center;
+      }
+    }
+
+    /* ========================================
+       Print Styles
+       ======================================== */
+    @media print {
+      *,
+      *::before,
+      *::after {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+      }
+
+      body {
+        font-size: 12pt;
+        line-height: 1.5;
+      }
+
+      .header__hamburger,
+      .mobile-nav,
+      .hero__cta,
+      .contact__cta {
+        display: none !important;
+      }
+
+      .header__separator,
+      .hero__gold-line,
+      .hero__rule,
+      .contact__gold-line,
+      .footer__gold-line,
+      .gold-line {
+        background-color: #ccc !important;
+      }
+
+      .about {
+        background-color: #fff !important;
+        page-break-inside: avoid;
+      }
+
+      .about__text {
+        color: #000 !important;
+      }
+
+      .about__name,
+      .about__title,
+      .about__bio,
+      .about__credentials li {
+        color: #000 !important;
+      }
+
+      .footer {
+        background-color: #fff !important;
+      }
+
+      .footer__col-title,
+      .footer__col a,
+      .footer__col p,
+      .footer__copyright,
+      .footer__disclaimer {
+        color: #000 !important;
+      }
+
+      .philosophy::before,
+      .philosophy::after {
+        display: none;
+      }
+
+      a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 10pt;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      @page {
+        margin: 2cm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       Header
+       ======================================== -->
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="#" class="header__logo" aria-label="Eirini C. Lika - Startseite">
+          <svg xmlns="http://www.w3.org/2000/svg" width="180" height="44" viewBox="0 0 180 44" fill="none" role="img" aria-label="Eirini C. Lika Logo">
+            <path d="M24 4C13 4 5 12 5 23s8 19 19 19c4 0 7-1 10-3" stroke="#C9A84C" stroke-width="2" fill="none" stroke-linecap="round"/>
+            <path d="M30 9C26 6 21 6 17 9s-7 8-7 14c0 6 3 11 7 14" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+            <text x="15" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="16" font-weight="600" fill="#C9A84C" font-style="italic">L</text>
+            <text x="44" y="22" font-family="Cormorant Garamond, Georgia, serif" font-size="16" font-weight="500" fill="#0F1B2D" letter-spacing="0.12em">Eirini C. Lika</text>
+            <text x="44" y="36" font-family="Work Sans, sans-serif" font-size="7" font-weight="400" fill="#8B9AAF" letter-spacing="0.2em">RECHTSANW&#xC4;LTIN &#xB7; LL.M.</text>
+          </svg>
+        </a>
+
+        <nav class="header__nav" aria-label="Hauptnavigation">
+          <a href="#taetigkeitsbereiche">T&auml;tigkeitsbereiche</a>
+          <a href="#ueber-mich">&Uuml;ber mich</a>
+          <a href="#publikationen">Publikationen</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <button class="header__hamburger" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <hr class="header__separator">
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="#taetigkeitsbereiche">T&auml;tigkeitsbereiche</a>
+    <a href="#ueber-mich">&Uuml;ber mich</a>
+    <a href="#publikationen">Publikationen</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
+  <!-- ========================================
+       Hero Section
+       ======================================== -->
+  <section class="hero" aria-label="Willkommen">
+    <div class="container--narrow">
+      <div class="reveal">
+        <hr class="hero__gold-line">
+        <p class="hero__label">Kanzlei f&uuml;r KI-Regulierung &amp; Datenschutz</p>
+        <h1 class="hero__headline">Wo Recht auf<br>Innovation trifft</h1>
+        <hr class="hero__rule">
+        <p class="hero__subtitle">Spezialisierte Rechtsberatung an der Schnittstelle von K&uuml;nstlicher Intelligenz, Datenschutz und europ&auml;ischer Regulierung.</p>
+        <a href="#kontakt" class="hero__cta">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Philosophy / Approach Statement
+       ======================================== -->
+  <section class="philosophy" aria-label="Philosophie">
+    <div class="container--narrow reveal">
+      <blockquote class="philosophy__quote">
+        &raquo;Die beste Regulierung entsteht im Dialog zwischen Innovation und Verantwortung&nbsp;&mdash; nicht im Gegensatz.&laquo;
+      </blockquote>
+      <p class="philosophy__attribution">&mdash; Eirini C. Lika</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Practice Areas
+       ======================================== -->
+  <section class="practice" id="taetigkeitsbereiche" aria-label="T&auml;tigkeitsbereiche">
+    <div class="container">
+      <div class="practice__header reveal">
+        <hr class="gold-line gold-line--center">
+        <p class="section-label">T&auml;tigkeitsbereiche</p>
+      </div>
+
+      <div class="practice__list">
+        <div class="practice__item reveal">
+          <span class="practice__number">01</span>
+          <div class="practice__content">
+            <h3 class="practice__title">EU AI Act Compliance</h3>
+            <p class="practice__desc">Begleitung von der Risikoklassifizierung &uuml;ber die technische Dokumentation bis zur Konformit&auml;tsbewertung&nbsp;&mdash; f&uuml;r Anbieter und Betreiber von KI-Systemen.</p>
+          </div>
+        </div>
+
+        <div class="practice__item reveal">
+          <span class="practice__number">02</span>
+          <div class="practice__content">
+            <h3 class="practice__title">DSGVO &amp; Datenschutz</h3>
+            <p class="practice__desc">Umfassende Datenschutzberatung von der strategischen Konzeption bis zur operativen Umsetzung und Beh&ouml;rdenvertretung.</p>
+          </div>
+        </div>
+
+        <div class="practice__item reveal">
+          <span class="practice__number">03</span>
+          <div class="practice__content">
+            <h3 class="practice__title">KI-Governance</h3>
+            <p class="practice__desc">Entwicklung von Governance-Strukturen, die Compliance sicherstellen und gleichzeitig Innovation erm&ouml;glichen.</p>
+          </div>
+        </div>
+
+        <div class="practice__item reveal">
+          <span class="practice__number">04</span>
+          <div class="practice__content">
+            <h3 class="practice__title">Internationale Regulierung</h3>
+            <p class="practice__desc">Grenz&uuml;berschreitende Beratung in der EU, Deutschland und Griechenland&nbsp;&mdash; mit Verst&auml;ndnis f&uuml;r lokale Besonderheiten.</p>
+          </div>
+        </div>
+
+        <div class="practice__item reveal">
+          <span class="practice__number">05</span>
+          <div class="practice__content">
+            <h3 class="practice__title">Digitale Regulierung</h3>
+            <p class="practice__desc">Strategische Beratung zu DSA, Data Act und dem gesamten europ&auml;ischen Digitalrechtsrahmen.</p>
+          </div>
+        </div>
+
+        <div class="practice__item reveal">
+          <span class="practice__number">06</span>
+          <div class="practice__content">
+            <h3 class="practice__title">Schulungen</h3>
+            <p class="practice__desc">Ma&szlig;geschneiderte Fortbildungen f&uuml;r F&uuml;hrungskr&auml;fte, Rechtsabteilungen und Entwicklungsteams.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       About / Portrait Section
+       ======================================== -->
+  <section class="about" id="ueber-mich" aria-label="&Uuml;ber mich">
+    <div class="about__inner">
+      <div class="about__portrait reveal">
+        <img src="../assets/eirini-portrait.png" alt="Eirini C. Lika" loading="lazy">
+      </div>
+      <div class="about__text reveal">
+        <h2 class="about__name">Eirini C. Lika</h2>
+        <p class="about__title">Rechtsanw&auml;ltin &middot; LL.M.</p>
+        <p class="about__bio">In Griechenland und Deutschland als Rechtsanw&auml;ltin zugelassen, widme ich meine Praxis der Schnittstelle von Recht und Technologie. Meine Mandanten vertrauen auf juristische Pr&auml;zision gepaart mit einem tiefen Verst&auml;ndnis der technologischen Realit&auml;ten, die moderne Regulierung pr&auml;gen.</p>
+        <ul class="about__credentials">
+          <li>Zugelassen in Griechenland &amp; Deutschland</li>
+          <li>LL.M. International Business Law</li>
+          <li>Zertifizierte Datenschutzbeauftragte (T&Uuml;V)</li>
+          <li>Mitglied der Rechtsanwaltskammer M&uuml;nchen</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Publications / Insights
+       ======================================== -->
+  <section class="publications" id="publikationen" aria-label="Publikationen">
+    <div class="container">
+      <div class="publications__header reveal">
+        <hr class="gold-line gold-line--center">
+        <p class="section-label">Publikationen &amp; Insights</p>
+      </div>
+
+      <div class="publications__list">
+        <article class="publications__entry reveal">
+          <time class="publications__date" datetime="2026-02-15">15. Februar 2026</time>
+          <div class="publications__content">
+            <h3 class="publications__title">Der EU AI Act tritt in Kraft</h3>
+            <p class="publications__excerpt">Ein Leitfaden zu den wichtigsten Pflichten und &Uuml;bergangsfristen f&uuml;r Unternehmen.</p>
+          </div>
+        </article>
+
+        <article class="publications__entry reveal">
+          <time class="publications__date" datetime="2026-01-28">28. Januar 2026</time>
+          <div class="publications__content">
+            <h3 class="publications__title">DSGVO-Bu&szlig;gelder 2025</h3>
+            <p class="publications__excerpt">Analyse der bedeutendsten Durchsetzungsma&szlig;nahmen und Lehren f&uuml;r die Compliance-Praxis.</p>
+          </div>
+        </article>
+
+        <article class="publications__entry reveal">
+          <time class="publications__date" datetime="2026-01-10">10. Januar 2026</time>
+          <div class="publications__content">
+            <h3 class="publications__title">KI-Governance im Mittelstand</h3>
+            <p class="publications__excerpt">Ein praxisorientiertes Framework f&uuml;r den verantwortungsvollen Einsatz von KI.</p>
+          </div>
+        </article>
+      </div>
+
+      <a href="#" class="publications__more">Alle Publikationen &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Contact Section
+       ======================================== -->
+  <section class="contact" id="kontakt" aria-label="Kontakt">
+    <div class="container--narrow">
+      <div class="reveal">
+        <hr class="contact__gold-line">
+        <h2 class="contact__heading">Sprechen wir.</h2>
+        <p class="contact__text">F&uuml;r eine vertrauliche Erstberatung zu Ihren regulatorischen Herausforderungen im Bereich KI und Datenschutz.</p>
+        <a href="mailto:kontakt@eiriniclika.com" class="contact__email">kontakt@eiriniclika.com</a>
+        <p class="contact__location">M&uuml;nchen, Deutschland</p>
+        <a href="mailto:kontakt@eiriniclika.com" class="contact__cta">Termin vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="footer">
+    <div class="footer__gold-line"></div>
+    <div class="container">
+      <div class="footer__logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="180" height="44" viewBox="0 0 180 44" fill="none" role="img" aria-label="Eirini C. Lika Logo">
+          <path d="M24 4C13 4 5 12 5 23s8 19 19 19c4 0 7-1 10-3" stroke="#C9A84C" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M30 9C26 6 21 6 17 9s-7 8-7 14c0 6 3 11 7 14" stroke="#C9A84C" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          <text x="15" y="28" font-family="Cormorant Garamond, Georgia, serif" font-size="16" font-weight="600" fill="#C9A84C" font-style="italic">L</text>
+          <text x="44" y="22" font-family="Cormorant Garamond, Georgia, serif" font-size="16" font-weight="500" fill="#FDFBF7" letter-spacing="0.12em">Eirini C. Lika</text>
+          <text x="44" y="36" font-family="Work Sans, sans-serif" font-size="7" font-weight="400" fill="rgba(253,251,247,0.6)" letter-spacing="0.2em">RECHTSANW&#xC4;LTIN &#xB7; LL.M.</text>
+        </svg>
+      </div>
+
+      <div class="footer__inner">
+        <div class="footer__col">
+          <p class="footer__col-title">Navigation</p>
+          <a href="#taetigkeitsbereiche">T&auml;tigkeitsbereiche</a>
+          <a href="#ueber-mich">&Uuml;ber mich</a>
+          <a href="#publikationen">Publikationen</a>
+          <a href="#kontakt">Kontakt</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Kontakt</p>
+          <a href="mailto:kontakt@eiriniclika.com">kontakt@eiriniclika.com</a>
+          <p>M&uuml;nchen, Deutschland</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Rechtliches</p>
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutzerkl&auml;rung</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 Eirini C. Lika LL.M.</p>
+        <p class="footer__disclaimer">Diese Website dient ausschlie&szlig;lich der allgemeinen Information und stellt keine Rechtsberatung dar.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       JavaScript
+       ======================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ----------------------------------------
+         Scroll Reveal (IntersectionObserver)
+         ---------------------------------------- */
+      function initScrollReveal() {
+        var reveals = document.querySelectorAll('.reveal');
+
+        if (!('IntersectionObserver' in window)) {
+          reveals.forEach(function (el) {
+            el.classList.add('visible');
+          });
+          return;
+        }
+
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+          }
+        );
+
+        reveals.forEach(function (el) {
+          observer.observe(el);
+        });
+      }
+
+      /* ----------------------------------------
+         Mobile Navigation
+         ---------------------------------------- */
+      function initMobileNav() {
+        var hamburger = document.querySelector('.header__hamburger');
+        var mobileNav = document.querySelector('.mobile-nav');
+        var mobileLinks = mobileNav.querySelectorAll('a');
+
+        if (!hamburger || !mobileNav) return;
+
+        hamburger.addEventListener('click', function () {
+          var isOpen = mobileNav.classList.contains('open');
+          mobileNav.classList.toggle('open');
+          hamburger.classList.toggle('active');
+          hamburger.setAttribute('aria-expanded', !isOpen);
+          document.body.style.overflow = isOpen ? '' : 'hidden';
+        });
+
+        mobileLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileNav.classList.remove('open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      /* ----------------------------------------
+         Smooth Scroll for Anchor Links
+         ---------------------------------------- */
+      function initSmoothScroll() {
+        var anchors = document.querySelectorAll('a[href^="#"]');
+
+        anchors.forEach(function (anchor) {
+          anchor.addEventListener('click', function (e) {
+            var targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            var target = document.querySelector(targetId);
+            if (!target) return;
+
+            e.preventDefault();
+
+            var headerOffset = 40;
+            var elementPosition = target.getBoundingClientRect().top;
+            var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          });
+        });
+      }
+
+      /* ----------------------------------------
+         Initialize
+         ---------------------------------------- */
+      document.addEventListener('DOMContentLoaded', function () {
+        initScrollReveal();
+        initMobileNav();
+        initSmoothScroll();
+      });
+    })();
+  </script>
+
+</body>
+</html>
