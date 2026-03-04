@@ -463,106 +463,89 @@
     }
 
     /* PYRAMID */
-    .pyramid {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      max-width: 420px;
+    .pyramid-wrap {
+      max-width: 460px;
       margin: 0 auto;
     }
 
-    .pyramid__level {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--bg-primary);
+    .pyramid-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .pyramid-svg .level-shape {
+      transition: filter 0.3s ease, opacity 0.3s ease;
       cursor: pointer;
-      transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), filter var(--transition-smooth);
-      position: relative;
-      padding: 14px 0;
     }
 
-    .pyramid__level:hover {
-      transform: scale(1.04);
-      filter: brightness(1.15);
+    .pyramid-svg .level-shape:hover {
+      filter: brightness(1.2);
     }
 
-    .pyramid__level--1 {
-      width: 30%;
-      background: var(--risk-red);
-      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
-      padding-top: 36px;
-      padding-bottom: 10px;
-      min-height: 70px;
+    .pyramid-svg .level-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      fill: var(--bg-primary);
+      pointer-events: none;
     }
 
-    .pyramid__level--2 {
-      width: 52%;
-      background: var(--risk-orange);
-      clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
-      min-height: 60px;
+    .pyramid-legend {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 28px;
     }
 
-    .pyramid__level--3 {
-      width: 74%;
-      background: var(--risk-teal-mid);
-      clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
-      min-height: 60px;
+    .pyramid-legend__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      transition: border-color 0.3s ease, background 0.3s ease;
+      cursor: default;
     }
 
-    .pyramid__level--4 {
-      width: 96%;
-      background: var(--risk-teal-light);
-      clip-path: polygon(3% 0%, 97% 0%, 100% 100%, 0% 100%);
-      min-height: 60px;
+    .pyramid-legend__item:hover,
+    .pyramid-legend__item.active {
+      border-color: var(--accent-border);
+      background: rgba(255,255,255,0.03);
     }
 
-    .pyramid__tooltip {
-      position: absolute;
-      bottom: calc(100% + 12px);
-      left: 50%;
-      transform: translateX(-50%) scale(0.95);
-      background: var(--bg-card);
+    .pyramid-legend__dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .pyramid-legend__dot--1 { background: var(--risk-red); }
+    .pyramid-legend__dot--2 { background: var(--risk-orange); }
+    .pyramid-legend__dot--3 { background: var(--risk-teal-mid); }
+    .pyramid-legend__dot--4 { background: var(--risk-teal-light); }
+
+    .pyramid-legend__title {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       color: var(--text-primary);
+      margin-bottom: 2px;
+    }
+
+    .pyramid-legend__desc {
       font-family: var(--font-body);
       font-size: 0.8rem;
       font-weight: 400;
-      letter-spacing: 0;
-      text-transform: none;
-      padding: 12px 16px;
-      border-radius: 6px;
-      border: 1px solid var(--accent-border);
-      white-space: normal;
-      width: 260px;
-      text-align: left;
+      color: var(--text-secondary);
       line-height: 1.5;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity var(--transition-smooth), transform var(--transition-smooth);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-      z-index: 10;
-    }
-
-    .pyramid__tooltip::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 6px solid transparent;
-      border-top-color: var(--bg-card);
-    }
-
-    .pyramid__level:hover .pyramid__tooltip {
-      opacity: 1;
-      transform: translateX(-50%) scale(1);
     }
 
     .expertise__text {
@@ -1013,7 +996,7 @@
         gap: 48px;
       }
 
-      .pyramid {
+      .pyramid-wrap {
         order: -1;
       }
 
@@ -1272,22 +1255,54 @@
       <h2 class="section-heading reveal">Regulatorische Kompetenz auf h&ouml;chstem Niveau</h2>
 
       <div class="expertise__grid">
-        <div class="pyramid reveal">
-          <div class="pyramid__level pyramid__level--1" role="button" tabindex="0" aria-describedby="tip-1">
-            <span>Unannehmbares Risiko</span>
-            <div class="pyramid__tooltip" id="tip-1">Verbotene KI-Praktiken: Social Scoring, manipulative Systeme, biometrische Echtzeit-Fern&uuml;berwachung in &ouml;ffentlichen R&auml;umen.</div>
-          </div>
-          <div class="pyramid__level pyramid__level--2" role="button" tabindex="0" aria-describedby="tip-2">
-            <span>Hohes Risiko</span>
-            <div class="pyramid__tooltip" id="tip-2">Strenge Anforderungen: Konformit&auml;tsbewertung, Risikomanagement, menschliche Aufsicht, Transparenz und Dokumentation.</div>
-          </div>
-          <div class="pyramid__level pyramid__level--3" role="button" tabindex="0" aria-describedby="tip-3">
-            <span>Begrenztes Risiko</span>
-            <div class="pyramid__tooltip" id="tip-3">Transparenzpflichten: Nutzer m&uuml;ssen &uuml;ber die Interaktion mit KI informiert werden (z.B. Chatbots, Deepfakes).</div>
-          </div>
-          <div class="pyramid__level pyramid__level--4" role="button" tabindex="0" aria-describedby="tip-4">
-            <span>Minimales Risiko</span>
-            <div class="pyramid__tooltip" id="tip-4">Freie Nutzung: Keine besonderen regulatorischen Anforderungen. Freiwillige Verhaltenskodizes empfohlen.</div>
+        <div class="pyramid-wrap reveal">
+          <svg class="pyramid-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="EU AI Act Risikopyramide">
+            <!-- Level 1: Unannehmbares Risiko (top) -->
+            <polygon class="level-shape" data-level="1" points="200,10 260,82 140,82" fill="#E85D5D"/>
+            <text class="level-label" x="200" y="62" text-anchor="middle">Verboten</text>
+
+            <!-- Level 2: Hohes Risiko -->
+            <polygon class="level-shape" data-level="2" points="140,88 260,88 296,158 104,158" fill="#E8984C"/>
+            <text class="level-label" x="200" y="130" text-anchor="middle">Hohes Risiko</text>
+
+            <!-- Level 3: Begrenztes Risiko -->
+            <polygon class="level-shape" data-level="3" points="104,164 296,164 332,234 68,234" fill="#36B89A"/>
+            <text class="level-label" x="200" y="206" text-anchor="middle">Begrenztes Risiko</text>
+
+            <!-- Level 4: Minimales Risiko (base) -->
+            <polygon class="level-shape" data-level="4" points="68,240 332,240 360,290 40,290" fill="#6FD8BE"/>
+            <text class="level-label" x="200" y="272" text-anchor="middle">Minimales Risiko</text>
+          </svg>
+
+          <div class="pyramid-legend">
+            <div class="pyramid-legend__item" data-level="1">
+              <div class="pyramid-legend__dot pyramid-legend__dot--1"></div>
+              <div>
+                <div class="pyramid-legend__title">Unannehmbares Risiko</div>
+                <div class="pyramid-legend__desc">Verbotene KI-Praktiken: Social Scoring, manipulative Systeme, biometrische Echtzeit-Fern&uuml;berwachung.</div>
+              </div>
+            </div>
+            <div class="pyramid-legend__item" data-level="2">
+              <div class="pyramid-legend__dot pyramid-legend__dot--2"></div>
+              <div>
+                <div class="pyramid-legend__title">Hohes Risiko</div>
+                <div class="pyramid-legend__desc">Strenge Anforderungen: Konformit&auml;tsbewertung, Risikomanagement, menschliche Aufsicht, Dokumentation.</div>
+              </div>
+            </div>
+            <div class="pyramid-legend__item" data-level="3">
+              <div class="pyramid-legend__dot pyramid-legend__dot--3"></div>
+              <div>
+                <div class="pyramid-legend__title">Begrenztes Risiko</div>
+                <div class="pyramid-legend__desc">Transparenzpflichten: Nutzer m&uuml;ssen &uuml;ber die Interaktion mit KI informiert werden.</div>
+              </div>
+            </div>
+            <div class="pyramid-legend__item" data-level="4">
+              <div class="pyramid-legend__dot pyramid-legend__dot--4"></div>
+              <div>
+                <div class="pyramid-legend__title">Minimales Risiko</div>
+                <div class="pyramid-legend__desc">Freie Nutzung: Keine besonderen regulatorischen Anforderungen. Freiwillige Verhaltenskodizes empfohlen.</div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1638,33 +1653,36 @@
       }
 
       /* --------------------------------------------------------
-         KEYBOARD ACCESSIBILITY — PYRAMID TOOLTIPS
+         PYRAMID SVG + LEGEND HOVER SYNC
          -------------------------------------------------------- */
-      document.querySelectorAll('.pyramid__level').forEach(function (level) {
-        level.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            /* Toggle tooltip visibility via focus styling */
-            this.focus();
-          }
+      (function () {
+        var shapes = document.querySelectorAll('.pyramid-svg .level-shape');
+        var legendItems = document.querySelectorAll('.pyramid-legend__item');
+
+        function highlightLevel(level) {
+          legendItems.forEach(function (item) {
+            item.classList.toggle('active', item.getAttribute('data-level') === level);
+          });
+          shapes.forEach(function (shape) {
+            shape.style.opacity = shape.getAttribute('data-level') === level ? '1' : '0.4';
+          });
+        }
+
+        function resetAll() {
+          legendItems.forEach(function (item) { item.classList.remove('active'); });
+          shapes.forEach(function (shape) { shape.style.opacity = ''; });
+        }
+
+        shapes.forEach(function (shape) {
+          shape.addEventListener('mouseenter', function () { highlightLevel(this.getAttribute('data-level')); });
+          shape.addEventListener('mouseleave', resetAll);
         });
 
-        level.addEventListener('focus', function () {
-          var tooltip = this.querySelector('.pyramid__tooltip');
-          if (tooltip) {
-            tooltip.style.opacity = '1';
-            tooltip.style.transform = 'translateX(-50%) scale(1)';
-          }
+        legendItems.forEach(function (item) {
+          item.addEventListener('mouseenter', function () { highlightLevel(this.getAttribute('data-level')); });
+          item.addEventListener('mouseleave', resetAll);
         });
-
-        level.addEventListener('blur', function () {
-          var tooltip = this.querySelector('.pyramid__tooltip');
-          if (tooltip) {
-            tooltip.style.opacity = '';
-            tooltip.style.transform = '';
-          }
-        });
-      });
+      })();
 
       /* --------------------------------------------------------
          ESC KEY CLOSES MOBILE NAV
