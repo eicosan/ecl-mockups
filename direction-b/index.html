@@ -371,12 +371,13 @@
       left: 0;
       opacity: 0;
       transform: translateY(10px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transition: none;
       white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 8px;
       height: 36px;
+      pointer-events: none;
     }
 
     .hero__rotating-text::before {
@@ -384,12 +385,19 @@
       color: var(--text-muted);
     }
 
+    .hero__rotating-text.entering {
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     .hero__rotating-text.active {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .hero__rotating-text.exit {
+    .hero__rotating-text.exiting {
+      transition: opacity 0.3s ease, transform 0.3s ease;
       opacity: 0;
       transform: translateY(-10px);
     }
@@ -1605,21 +1613,29 @@
       var totalTexts = rotatingTexts.length;
 
       if (totalTexts > 0) {
+        /* Ensure first item is visible */
+        rotatingTexts[0].classList.add('active');
+
         setInterval(function () {
           var current = rotatingTexts[currentIndex];
+          /* Start exit: fade out current */
           current.classList.remove('active');
-          current.classList.add('exit');
+          current.classList.add('exiting');
 
+          /* After exit completes (300ms), clean up and show next */
           setTimeout(function () {
-            current.classList.remove('exit');
-          }, 500);
+            current.classList.remove('exiting');
 
-          currentIndex = (currentIndex + 1) % totalTexts;
-          var next = rotatingTexts[currentIndex];
+            currentIndex = (currentIndex + 1) % totalTexts;
+            var next = rotatingTexts[currentIndex];
+            next.classList.add('entering');
 
-          setTimeout(function () {
-            next.classList.add('active');
-          }, 200);
+            /* After enter completes, switch to stable active class */
+            setTimeout(function () {
+              next.classList.remove('entering');
+              next.classList.add('active');
+            }, 400);
+          }, 350);
         }, 3000);
       }
 
