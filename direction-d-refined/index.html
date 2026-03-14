@@ -1,0 +1,1449 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eirini C. Lika — Internationale Rechtsberatung</title>
+  <meta name="description" content="Spezialisierte Rechtsberatung an der Schnittstelle von KI-Regulierung, Datenschutz und europäischem Recht. EU, Vereinigtes Königreich und Griechenland.">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== CUSTOM PROPERTIES ===== */
+    :root {
+      --navy: #1B2A4A;
+      --navy-light: #243556;
+      --navy-dark: #111D33;
+      --olive: #6B705C;
+      --olive-light: #7D8270;
+      --olive-muted: rgba(107,112,92,0.12);
+      --bg-white: #FFFFFF;
+      --bg-warm: #F7F6F3;
+      --bg-card: #FFFFFF;
+      --text-primary: #111111;
+      --text-secondary: #6B7280;
+      --text-on-dark: #FFFFFF;
+      --text-on-dark-muted: #B8C0D0;
+      --border: #E5E5E0;
+      --border-olive: #6B705C;
+      --font-headline: 'EB Garamond', Garamond, 'Times New Roman', serif;
+      --font-body: 'Source Sans 3', 'Source Sans Pro', -apple-system, sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background: var(--bg-white);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    /* ===== UTILITIES ===== */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--olive);
+      margin-bottom: 16px;
+    }
+
+    .label--light {
+      color: var(--olive-light);
+    }
+
+    .section-heading {
+      font-family: var(--font-headline);
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 48px;
+    }
+
+    .text-link {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--navy);
+      transition: color 0.2s ease;
+    }
+
+    .text-link:hover {
+      color: var(--olive);
+    }
+
+    .text-link--olive {
+      color: var(--olive);
+    }
+
+    .text-link--olive:hover {
+      color: var(--olive-light);
+    }
+
+    .text-link--small {
+      font-size: 14px;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0;
+      transition: opacity 0.6s ease-out;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      height: 64px;
+      background: var(--bg-white);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header.is-scrolled {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .header__logo {
+      font-family: var(--font-headline);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .header__logo-sub {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+    }
+
+    .header__right {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .header__nav a {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+      transition: color 0.2s ease;
+    }
+
+    .header__nav a:hover {
+      color: var(--olive);
+    }
+
+    .header__lang {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header__lang span {
+      color: var(--text-secondary);
+      opacity: 0.5;
+    }
+
+    .header__lang-separator {
+      color: var(--text-secondary);
+      opacity: 0.3;
+    }
+
+    .header__hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .header__hamburger svg {
+      display: block;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-white);
+      z-index: 99;
+      padding: 32px 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .mobile-menu.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu a {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text-primary);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mobile-menu__lang {
+      margin-top: 24px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 85vh;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 64px;
+      text-align: center;
+    }
+
+    .hero__inner {
+      padding: 100px 0;
+      max-width: 780px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero__line {
+      width: 40px;
+      height: 2px;
+      background: var(--olive);
+      margin-bottom: 40px;
+    }
+
+    .hero__title {
+      font-family: var(--font-headline);
+      font-size: 50px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text-on-dark);
+      margin-bottom: 28px;
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text-on-dark-muted);
+      margin-bottom: 36px;
+      max-width: 560px;
+    }
+
+    .hero__cta {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--olive);
+      transition: color 0.2s ease;
+    }
+
+    .hero__cta:hover {
+      color: var(--olive-light);
+    }
+
+    .hero__jurisdictions {
+      margin-top: 64px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-on-dark-muted);
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--bg-white);
+      padding: 120px 0;
+      text-align: center;
+    }
+
+    .about__inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .about__text {
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      line-height: 1.8;
+    }
+
+    /* ===== PHILOSOPHY ===== */
+    .philosophy {
+      background: var(--bg-warm);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .philosophy__inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .philosophy__text {
+      font-family: var(--font-headline);
+      font-style: italic;
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin-bottom: 40px;
+    }
+
+    .philosophy__line {
+      width: 60px;
+      height: 2px;
+      background: var(--olive);
+      margin: 0 auto;
+    }
+
+    /* ===== PRACTICE AREAS ===== */
+    .practice {
+      background: var(--bg-white);
+      padding: 100px 0;
+    }
+
+    .practice__intro {
+      color: var(--text-secondary);
+      margin-bottom: 48px;
+      max-width: 640px;
+    }
+
+    .practice__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .practice-card {
+      padding: 32px 0;
+      position: relative;
+    }
+
+    .practice-card__line {
+      width: 32px;
+      height: 2px;
+      background: var(--olive);
+      margin-bottom: 20px;
+      transition: width 0.4s ease;
+    }
+
+    .practice-card:hover .practice-card__line {
+      width: 100%;
+    }
+
+    .practice-card__title {
+      font-family: var(--font-headline);
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .practice-card__desc {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    /* ===== QUALIFICATIONS ===== */
+    .qualifications {
+      background: var(--bg-warm);
+      padding: 120px 0;
+    }
+
+    .qualifications__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .qualifications__portrait-wrap {
+      width: 100%;
+    }
+
+    .qualifications__portrait {
+      border-radius: 6px;
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+
+    .qualifications__portrait-placeholder {
+      border-radius: 6px;
+      width: 100%;
+      height: 480px;
+      background: linear-gradient(135deg, #1B2A4A, #243556);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.5);
+      font-family: var(--font-body);
+      font-size: 14px;
+    }
+
+    .qualifications__label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--olive);
+      margin-bottom: 12px;
+    }
+
+    .qualifications__name {
+      font-family: var(--font-headline);
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .qualifications__title {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+    }
+
+    .qualifications__section {
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+    }
+
+    .qualifications__section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .qualifications__section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--olive);
+      margin-bottom: 12px;
+    }
+
+    .qualifications__list li {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      padding: 3px 0;
+    }
+
+    /* ===== JURISDICTIONS ===== */
+    .jurisdictions {
+      background: var(--navy);
+      padding: 100px 0;
+    }
+
+    .jurisdictions__heading {
+      font-family: var(--font-headline);
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text-on-dark);
+      margin-bottom: 48px;
+    }
+
+    .jurisdictions__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+
+    .jurisdictions__col {
+      padding: 0 32px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .jurisdictions__col:first-child {
+      padding-left: 0;
+    }
+
+    .jurisdictions__col:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .jurisdictions__col-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--olive);
+      margin-bottom: 12px;
+    }
+
+    .jurisdictions__col-title {
+      font-family: var(--font-headline);
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text-on-dark);
+      margin-bottom: 12px;
+    }
+
+    .jurisdictions__col-text {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-on-dark-muted);
+    }
+
+    /* ===== INSIGHTS ===== */
+    .insights {
+      background: var(--bg-white);
+      padding: 100px 0;
+    }
+
+    .insights__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-bottom: 40px;
+    }
+
+    .insight-card {
+      padding: 28px 32px;
+      border-left: 2px solid transparent;
+      border-right: 1px solid var(--border);
+      transition: border-left-color 0.3s ease;
+    }
+
+    .insight-card:first-child {
+      padding-left: 0;
+    }
+
+    .insight-card:last-child {
+      border-right: none;
+      padding-right: 0;
+    }
+
+    .insight-card:hover {
+      border-left-color: var(--olive);
+    }
+
+    .insight-card__meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .insight-card__date {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .insight-card__tag {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--olive);
+    }
+
+    .insight-card__title {
+      font-family: var(--font-headline);
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .insight-card__excerpt {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: var(--bg-warm);
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .contact__inner {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .contact__text {
+      font-size: 18px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .contact__email {
+      font-size: 16px;
+      color: var(--navy);
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 8px;
+      transition: color 0.2s ease;
+    }
+
+    .contact__email:hover {
+      color: var(--olive);
+    }
+
+    .contact__location {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 48px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-on-dark);
+      background: var(--navy);
+      border: none;
+      border-radius: 4px;
+      padding: 14px 28px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: var(--navy-light);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy-dark);
+      padding: 64px 0 32px;
+      border-top: 1px solid var(--olive);
+    }
+
+    .footer__logo {
+      font-family: var(--font-headline);
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--text-on-dark);
+      margin-bottom: 48px;
+    }
+
+    .footer__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 56px;
+    }
+
+    .footer__col-title {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--olive-light);
+      margin-bottom: 16px;
+    }
+
+    .footer__col a,
+    .footer__col p {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-on-dark-muted);
+      padding: 3px 0;
+      transition: color 0.2s ease;
+    }
+
+    .footer__col a:hover {
+      color: var(--text-on-dark);
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 24px;
+    }
+
+    .footer__copyright {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-on-dark-muted);
+      margin-bottom: 8px;
+    }
+
+    .footer__disclaimer {
+      font-family: var(--font-body);
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--text-on-dark-muted);
+      opacity: 0.7;
+      max-width: 700px;
+    }
+
+    .footer__font-note {
+      font-family: var(--font-body);
+      font-size: 11px;
+      color: var(--text-on-dark-muted);
+      opacity: 0.5;
+      margin-top: 16px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .practice__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .qualifications__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+
+      .footer__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+
+      .container {
+        padding: 0 20px;
+      }
+
+      .header__nav,
+      .header__lang {
+        display: none;
+      }
+
+      .header__hamburger {
+        display: block;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero__inner {
+        padding: 64px 0;
+      }
+
+      .hero__title {
+        font-size: 32px;
+      }
+
+      .hero__subtitle {
+        font-size: 16px;
+      }
+
+      .hero__jurisdictions {
+        margin-top: 40px;
+        font-size: 11px;
+      }
+
+      .section-heading {
+        font-size: 24px;
+        margin-bottom: 32px;
+      }
+
+      .about {
+        padding: 80px 0;
+      }
+
+      .philosophy {
+        padding: 72px 0;
+      }
+
+      .philosophy__text {
+        font-size: 22px;
+      }
+
+      .practice {
+        padding: 80px 0;
+      }
+
+      .practice__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .practice-card__title {
+        font-size: 18px;
+      }
+
+      .qualifications {
+        padding: 80px 0;
+      }
+
+      .qualifications__grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .qualifications__portrait,
+      .qualifications__portrait-placeholder {
+        max-width: 400px;
+        height: 360px;
+      }
+
+      .qualifications__name {
+        font-size: 26px;
+      }
+
+      .jurisdictions {
+        padding: 80px 0;
+      }
+
+      .jurisdictions__heading {
+        font-size: 24px;
+        margin-bottom: 32px;
+      }
+
+      .jurisdictions__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .jurisdictions__col {
+        padding: 0;
+        border-right: none;
+        padding-bottom: 32px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+      }
+
+      .jurisdictions__col:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .insights {
+        padding: 80px 0;
+      }
+
+      .insights__grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .insight-card {
+        padding: 20px 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        border-left: 2px solid transparent;
+      }
+
+      .insight-card:last-child {
+        border-bottom: none;
+        padding-right: 0;
+      }
+
+      .insight-card__title {
+        font-size: 18px;
+      }
+
+      .contact {
+        padding: 80px 0;
+      }
+
+      .footer {
+        padding: 48px 0 32px;
+      }
+
+      .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .label {
+        font-size: 11px;
+      }
+
+      .jurisdictions__col-title {
+        font-size: 18px;
+      }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      .header,
+      .mobile-menu,
+      .header__hamburger {
+        display: none !important;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 0;
+        background: var(--navy) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      body {
+        font-size: 12pt;
+      }
+
+      .reveal {
+        opacity: 1 !important;
+      }
+
+      .practice-card,
+      .insight-card {
+        break-inside: avoid;
+      }
+
+      .jurisdictions,
+      .footer {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a[href]::after {
+        content: none;
+      }
+
+      .btn-primary {
+        background: var(--navy) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#" class="header__logo" aria-label="Eirini C. Lika — Startseite">
+        EIRINI C. LIKA
+        <span class="header__logo-sub">Solicitor &middot; LL.M.</span>
+      </a>
+
+      <div class="header__right">
+        <nav class="header__nav" aria-label="Hauptnavigation">
+          <a href="#practice">Tätigkeitsbereiche</a>
+          <a href="#about">Über die Kanzlei</a>
+          <a href="#insights">Insights</a>
+          <a href="#contact">Kontakt</a>
+        </nav>
+
+        <div class="header__lang" aria-label="Sprache">
+          DE <span class="header__lang-separator">&middot;</span> <span>EN</span> <span class="header__lang-separator">&middot;</span> <span>EL</span>
+        </div>
+      </div>
+
+      <button class="header__hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#practice" class="mobile-menu__link">Tätigkeitsbereiche</a>
+    <a href="#about" class="mobile-menu__link">Über die Kanzlei</a>
+    <a href="#insights" class="mobile-menu__link">Insights</a>
+    <a href="#contact" class="mobile-menu__link">Kontakt</a>
+    <div class="mobile-menu__lang">DE &middot; EN &middot; EL</div>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero__inner">
+        <div class="hero__line"></div>
+        <h1 class="hero__title">Internationale Rechtsberatung an der Schnittstelle von KI-Regulierung, Datenschutz und europäischem Recht</h1>
+        <p class="hero__subtitle">Beratung für Unternehmen, Institutionen und Einzelpersonen in der Europäischen Union, dem Vereinigten Königreich und Griechenland.</p>
+        <a href="#contact" class="hero__cta">Kontakt aufnehmen &rarr;</a>
+        <div class="hero__jurisdictions">
+          Europäische Union &middot; Vereinigtes Königreich &middot; Griechenland
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about" id="about">
+    <div class="container reveal">
+      <div class="about__inner">
+        <div class="label">Über die Kanzlei</div>
+        <h2 class="section-heading">Spezialisierte Rechtsberatung für die Herausforderungen der digitalen Regulierung</h2>
+        <p class="about__text">Die Kanzlei Eirini C. Lika berät an der Schnittstelle von Technologie, Regulierung und internationalem Recht. Mit Schwerpunkt auf dem EU AI Act, der DSGVO und grenzüberschreitender Rechtsberatung verbindet die Kanzlei regulatorische Tiefe mit praxisorientierter Beratung.</p>
+        <a href="#" class="text-link">Mehr über die Kanzlei &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHILOSOPHY ===== -->
+  <section class="philosophy">
+    <div class="container reveal">
+      <div class="philosophy__inner">
+        <p class="philosophy__text">Rechtsberatung soll Klarheit schaffen — über Jurisdiktionen, Technologien und regulatorische Anforderungen hinweg. Strukturelle Präzision und persönliche Zugänglichkeit sind dabei kein Widerspruch.</p>
+        <div class="philosophy__line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRACTICE AREAS ===== -->
+  <section class="practice" id="practice">
+    <div class="container reveal">
+      <div class="label">Tätigkeitsbereiche</div>
+      <h2 class="section-heading">Schwerpunkte</h2>
+      <p class="practice__intro">Strukturierte, grenzüberschreitende und regulierungsfokussierte Rechtsberatung.</p>
+
+      <div class="practice__grid">
+        <div class="practice-card">
+          <div class="practice-card__line"></div>
+          <h3 class="practice-card__title">KI-Recht &amp; EU AI Act</h3>
+          <p class="practice-card__desc">Beratung zur Klassifizierung, Compliance und Governance von KI-Systemen nach dem EU AI Act.</p>
+          <a href="#" class="text-link text-link--small">Mehr erfahren &rarr;</a>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-card__line"></div>
+          <h3 class="practice-card__title">Datenschutz &amp; IT-Recht</h3>
+          <p class="practice-card__desc">DSGVO-Compliance, Datenschutzfolgenabschätzungen, technisch-organisatorische Maßnahmen und Betroffenenrechte.</p>
+          <a href="#" class="text-link text-link--small">Mehr erfahren &rarr;</a>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-card__line"></div>
+          <h3 class="practice-card__title">Gesellschafts- &amp; Handelsrecht</h3>
+          <p class="practice-card__desc">Gesellschaftsgründungen, Corporate Governance und grenzüberschreitende Unternehmensstrukturen.</p>
+          <a href="#" class="text-link text-link--small">Mehr erfahren &rarr;</a>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-card__line"></div>
+          <h3 class="practice-card__title">Vertragsgestaltung</h3>
+          <p class="practice-card__desc">Technologieverträge, SaaS-Agreements, Lizenzverträge und internationale Vertragsmuster.</p>
+          <a href="#" class="text-link text-link--small">Mehr erfahren &rarr;</a>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-card__line"></div>
+          <h3 class="practice-card__title">Grenzüberschreitende Rechtsberatung</h3>
+          <p class="practice-card__desc">Koordination regulatorischer Anforderungen über die EU, das Vereinigte Königreich und Griechenland hinweg.</p>
+          <a href="#" class="text-link text-link--small">Mehr erfahren &rarr;</a>
+        </div>
+
+        <div class="practice-card">
+          <div class="practice-card__line"></div>
+          <h3 class="practice-card__title">Private Mandate &amp; Vorsorgevollmachten</h3>
+          <p class="practice-card__desc">Patientenverfügungen, Vorsorgevollmachten und Betreuungsverfügungen.</p>
+          <a href="#" class="text-link text-link--small">Mehr erfahren &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QUALIFICATIONS ===== -->
+  <section class="qualifications" id="qualifications">
+    <div class="container reveal">
+      <div class="qualifications__grid">
+        <div class="qualifications__portrait-wrap">
+          <div class="qualifications__portrait-placeholder">Professionelles Porträtfoto</div>
+        </div>
+
+        <div class="qualifications__info">
+          <div class="qualifications__label">Eirini C. Lika</div>
+          <h2 class="qualifications__name">Eirini C. Lika</h2>
+          <p class="qualifications__title">Solicitor (England &amp; Wales) &middot; Rechtsanwältin</p>
+
+          <div class="qualifications__section">
+            <div class="qualifications__section-label">Berufszulassungen</div>
+            <ul class="qualifications__list">
+              <li>Solicitor of England and Wales (SRA Nr. [Platzhalter])</li>
+              <li>Zugelassene Rechtsanwältin (&#916;&#953;&#954;&#951;&#947;&#972;&#961;&#959;&#962;) — Rechtsanwaltskammer Athen</li>
+              <li>Europäische Rechtsanwältin (&#167; 206 BRAO) — Rechtsanwaltskammer Frankfurt am Main</li>
+            </ul>
+          </div>
+
+          <div class="qualifications__section">
+            <div class="qualifications__section-label">Akademische Qualifikationen</div>
+            <ul class="qualifications__list">
+              <li>LL.M. Europäisches Recht — University College London (UCL)</li>
+              <li>LL.M. Wirtschaftsrecht — Goethe-Universität Frankfurt am Main</li>
+              <li>LL.B. — Nationale und Kapodistrias-Universität Athen</li>
+            </ul>
+          </div>
+
+          <div class="qualifications__section">
+            <div class="qualifications__section-label">Sprachen</div>
+            <ul class="qualifications__list">
+              <li>Deutsch &middot; Englisch &middot; Griechisch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JURISDICTIONS ===== -->
+  <section class="jurisdictions" id="jurisdictions">
+    <div class="container reveal">
+      <h2 class="jurisdictions__heading">Grenzüberschreitende Perspektive</h2>
+
+      <div class="jurisdictions__grid">
+        <div class="jurisdictions__col">
+          <div class="jurisdictions__col-label">Jurisdiktion</div>
+          <h3 class="jurisdictions__col-title">Europäische Union</h3>
+          <p class="jurisdictions__col-text">EU AI Act, DSGVO, Digital Services Act, grenzüberschreitende Datenverarbeitung</p>
+        </div>
+
+        <div class="jurisdictions__col">
+          <div class="jurisdictions__col-label">Jurisdiktion</div>
+          <h3 class="jurisdictions__col-title">Vereinigtes Königreich</h3>
+          <p class="jurisdictions__col-text">UK GDPR, AI Safety Framework, SRA-regulierte Rechtsberatung</p>
+        </div>
+
+        <div class="jurisdictions__col">
+          <div class="jurisdictions__col-label">Jurisdiktion</div>
+          <h3 class="jurisdictions__col-title">Griechenland</h3>
+          <p class="jurisdictions__col-text">Griechisches Datenschutzrecht, Unternehmensrecht, Zivilrecht</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSIGHTS ===== -->
+  <section class="insights" id="insights">
+    <div class="container reveal">
+      <div class="label">Aktuelle Insights</div>
+      <h2 class="section-heading">Perspektiven aus der regulatorischen Praxis</h2>
+
+      <div class="insights__grid">
+        <article class="insight-card">
+          <div class="insight-card__meta">
+            <span class="insight-card__date">15. Februar 2026</span>
+            <span class="insight-card__tag">KI-Regulierung</span>
+          </div>
+          <h3 class="insight-card__title">EU AI Act: Erste Leitlinien zur Risikoklassifizierung veröffentlicht</h3>
+          <p class="insight-card__excerpt">Die Europäische Kommission hat die lang erwarteten Leitlinien zur Risikoklassifizierung von KI-Systemen veröffentlicht.</p>
+        </article>
+
+        <article class="insight-card">
+          <div class="insight-card__meta">
+            <span class="insight-card__date">28. Januar 2026</span>
+            <span class="insight-card__tag">Datenschutz</span>
+          </div>
+          <h3 class="insight-card__title">DSGVO-Bußgelder 2025: Trends und Handlungsempfehlungen</h3>
+          <p class="insight-card__excerpt">Ein Überblick über die bedeutendsten Durchsetzungsmaßnahmen des vergangenen Jahres.</p>
+        </article>
+
+        <article class="insight-card">
+          <div class="insight-card__meta">
+            <span class="insight-card__date">10. Januar 2026</span>
+            <span class="insight-card__tag">EU-Recht</span>
+          </div>
+          <h3 class="insight-card__title">Grenzüberschreitende Datentransfers nach Schrems III — Ein Ausblick</h3>
+          <p class="insight-card__excerpt">Was der nächste große EuGH-Fall für internationale Datentransfers bedeuten könnte.</p>
+        </article>
+      </div>
+
+      <a href="#" class="text-link">Alle Insights ansehen &rarr;</a>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="container reveal">
+      <div class="contact__inner">
+        <h2 class="section-heading">Kontakt</h2>
+        <p class="contact__text">Für ein unverbindliches Erstgespräch stehe ich Ihnen gerne zur Verfügung.</p>
+        <a href="mailto:kontakt@eiriniclika.com" class="contact__email">kontakt@eiriniclika.com</a>
+        <p class="contact__location">Frankfurt am Main, Deutschland</p>
+        <a href="mailto:kontakt@eiriniclika.com" class="btn-primary">Erstgespräch vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__logo">EIRINI C. LIKA</div>
+
+      <div class="footer__grid">
+        <div class="footer__col">
+          <div class="footer__col-title">Tätigkeitsbereiche</div>
+          <a href="#">KI-Recht &amp; EU AI Act</a>
+          <a href="#">Datenschutz &amp; IT-Recht</a>
+          <a href="#">Gesellschafts- &amp; Handelsrecht</a>
+          <a href="#">Vertragsgestaltung</a>
+          <a href="#">Grenzüberschreitende Rechtsberatung</a>
+          <a href="#">Private Mandate &amp; Vorsorgevollmachten</a>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__col-title">Kanzlei</div>
+          <a href="#about">Über die Kanzlei</a>
+          <a href="#qualifications">Berufszulassungen</a>
+          <a href="#insights">Insights</a>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__col-title">Rechtliches</div>
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutzerklärung</a>
+          <a href="#">Disclaimer</a>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__col-title">Kontakt</div>
+          <a href="mailto:kontakt@eiriniclika.com">kontakt@eiriniclika.com</a>
+          <p>Frankfurt am Main</p>
+          <p>Deutsch &middot; Englisch &middot; Griechisch</p>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__copyright">&copy; 2026 Eirini C. Lika &middot; Alle Rechte vorbehalten.</div>
+        <div class="footer__disclaimer">Die Informationen auf dieser Website dienen ausschließlich der allgemeinen Information und stellen keine Rechtsberatung dar.</div>
+        <div class="footer__font-note">Mockup-Fonts: EB Garamond + Source Sans 3. Für die finale Website sind EB Garamond (kostenlos) + Source Sans 3 (kostenlos) vorgesehen — alternativ GT Sectra (Premium) als Upgrade.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    (function() {
+      'use strict';
+
+      /* --- Header scroll effect --- */
+      var header = document.getElementById('header');
+      var scrollThreshold = 10;
+
+      function onScroll() {
+        if (window.scrollY > scrollThreshold) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      /* --- Mobile menu --- */
+      var hamburger = document.getElementById('hamburger');
+      var mobileMenu = document.getElementById('mobileMenu');
+      var mobileLinks = mobileMenu.querySelectorAll('a');
+      var isMenuOpen = false;
+
+      function toggleMenu() {
+        isMenuOpen = !isMenuOpen;
+        mobileMenu.classList.toggle('is-open', isMenuOpen);
+        hamburger.setAttribute('aria-expanded', isMenuOpen.toString());
+
+        var lines = hamburger.querySelectorAll('line');
+        if (isMenuOpen) {
+          lines[0].setAttribute('x1', '4');
+          lines[0].setAttribute('y1', '4');
+          lines[0].setAttribute('x2', '20');
+          lines[0].setAttribute('y2', '20');
+          lines[1].style.opacity = '0';
+          lines[2].setAttribute('x1', '4');
+          lines[2].setAttribute('y1', '20');
+          lines[2].setAttribute('x2', '20');
+          lines[2].setAttribute('y2', '4');
+        } else {
+          lines[0].setAttribute('x1', '3');
+          lines[0].setAttribute('y1', '6');
+          lines[0].setAttribute('x2', '21');
+          lines[0].setAttribute('y2', '6');
+          lines[1].style.opacity = '1';
+          lines[2].setAttribute('x1', '3');
+          lines[2].setAttribute('y1', '18');
+          lines[2].setAttribute('x2', '21');
+          lines[2].setAttribute('y2', '18');
+        }
+      }
+
+      hamburger.addEventListener('click', toggleMenu);
+
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (isMenuOpen) {
+            toggleMenu();
+          }
+        });
+      });
+
+      /* --- Scroll reveal (IntersectionObserver) --- */
+      var revealElements = document.querySelectorAll('.reveal');
+
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(function(el) {
+          observer.observe(el);
+        });
+      } else {
+        revealElements.forEach(function(el) {
+          el.classList.add('is-visible');
+        });
+      }
+
+      /* --- Smooth scroll for anchor links --- */
+      document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+        anchor.addEventListener('click', function(e) {
+          var targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+
+          var target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            var headerHeight = header.offsetHeight;
+            var targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
