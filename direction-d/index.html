@@ -163,8 +163,38 @@
       height: 60px;
     }
 
-    .header__logo svg {
-      display: block;
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .header__logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .header__logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header__logo-name {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: #1B2A4A;
+    }
+
+    .header__logo-sub {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 7px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: #6B7280;
+      text-transform: uppercase;
     }
 
     .header__right {
@@ -667,6 +697,36 @@
 
     .footer__logo {
       margin-bottom: 40px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer__logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .footer__logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer__logo-name {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: #FFFFFF;
+    }
+
+    .footer__logo-sub {
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 7px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: #B8C0D0;
+      text-transform: uppercase;
     }
 
     .footer__grid {
@@ -941,13 +1001,11 @@
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#" class="header__logo" aria-label="Eirini C. Lika — Startseite">
-        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none">
-          <path d="M22 4C12 4 5 11 5 21s7 17 17 17c3 0 7-1 9-2" stroke="#6B705C" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M28 8C24 5.5 19 5.5 15 8s-6 7-6 13c0 6 2 10 6 13" stroke="#6B705C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          <text x="14" y="26" font-family="EB Garamond, Georgia, serif" font-size="15" font-weight="600" fill="#6B705C" font-style="italic">L</text>
-          <text x="40" y="26" font-family="'Source Sans 3', sans-serif" font-size="14" font-weight="500" fill="#1B2A4A" letter-spacing="0.1em">EIRINI C. LIKA</text>
-          <text x="40" y="36" font-family="'Source Sans 3', sans-serif" font-size="7" font-weight="400" fill="#6B7280" letter-spacing="0.15em">SOLICITOR · LL.M.</text>
-        </svg>
+        <img src="../assets/ECL-Logo-Olive.svg" alt="ECL">
+        <span class="header__logo-text">
+          <span class="header__logo-name">EIRINI C. LIKA</span>
+          <span class="header__logo-sub">Solicitor &middot; LL.M.</span>
+        </span>
       </a>
 
       <div class="header__right">
@@ -1204,13 +1262,11 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__logo">
-        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none">
-          <path d="M22 4C12 4 5 11 5 21s7 17 17 17c3 0 7-1 9-2" stroke="#6B705C" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M28 8C24 5.5 19 5.5 15 8s-6 7-6 13c0 6 2 10 6 13" stroke="#6B705C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          <text x="14" y="26" font-family="EB Garamond, Georgia, serif" font-size="15" font-weight="600" fill="#6B705C" font-style="italic">L</text>
-          <text x="40" y="26" font-family="'Source Sans 3', sans-serif" font-size="14" font-weight="500" fill="#FFFFFF" letter-spacing="0.1em">EIRINI C. LIKA</text>
-          <text x="40" y="36" font-family="'Source Sans 3', sans-serif" font-size="7" font-weight="400" fill="#B8C0D0" letter-spacing="0.15em">SOLICITOR · LL.M.</text>
-        </svg>
+        <img src="../assets/ECL-Logo-White.svg" alt="ECL">
+        <span class="footer__logo-text">
+          <span class="footer__logo-name">EIRINI C. LIKA</span>
+          <span class="footer__logo-sub">Solicitor &middot; LL.M.</span>
+        </span>
       </div>
 
       <div class="footer__grid">

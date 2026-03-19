@@ -165,8 +165,38 @@
       flex-shrink: 0;
     }
 
-    .header__logo svg {
-      display: block;
+    .header__logo a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .header__logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .header__logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header__logo-name {
+      font-family: Space Grotesk, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: #E8E9EA;
+    }
+
+    .header__logo-sub {
+      font-family: IBM Plex Mono, monospace;
+      font-size: 6.5px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      color: #8B8D90;
+      text-transform: uppercase;
     }
 
     .header__nav {
@@ -1189,13 +1219,11 @@
     <div class="header__inner">
       <div class="header__logo">
         <a href="#" aria-label="Eirini C. Lika - Startseite">
-          <svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none" role="img" aria-label="Eirini C. Lika Logo">
-            <path d="M22 4C12 4 5 11 5 21s7 17 17 17c3 0 7-1 9-2" stroke="#00D4AA" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-            <path d="M28 8C24 5.5 19 5.5 15 8s-6 7-6 13c0 6 2 10 6 13" stroke="#00D4AA" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-            <text x="14" y="26" font-family="Playfair Display, Georgia, serif" font-size="15" font-weight="600" fill="#00D4AA" font-style="italic">L</text>
-            <text x="40" y="26" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="400" fill="#E8E9EA" letter-spacing="0.12em">EIRINI C. LIKA</text>
-            <text x="40" y="36" font-family="IBM Plex Mono, monospace" font-size="6.5" font-weight="400" fill="#8B8D90" letter-spacing="0.15em">RECHTSANW&#xC4;LTIN &#xB7; LL.M.</text>
-          </svg>
+          <img src="../assets/ECL-Logo-White.svg" alt="ECL">
+          <span class="header__logo-text">
+            <span class="header__logo-name">EIRINI C. LIKA</span>
+            <span class="header__logo-sub">Rechtsanw&auml;ltin &middot; LL.M.</span>
+          </span>
         </a>
       </div>
 
@@ -1494,14 +1522,12 @@
       <div class="footer__inner">
         <div class="footer__grid">
           <div>
-            <a href="#" aria-label="Eirini C. Lika - Startseite">
-              <svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none" role="img" aria-label="Eirini C. Lika Logo">
-                <path d="M22 4C12 4 5 11 5 21s7 17 17 17c3 0 7-1 9-2" stroke="#00D4AA" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-                <path d="M28 8C24 5.5 19 5.5 15 8s-6 7-6 13c0 6 2 10 6 13" stroke="#00D4AA" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                <text x="14" y="26" font-family="Playfair Display, Georgia, serif" font-size="15" font-weight="600" fill="#00D4AA" font-style="italic">L</text>
-                <text x="40" y="26" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="400" fill="#E8E9EA" letter-spacing="0.12em">EIRINI C. LIKA</text>
-                <text x="40" y="36" font-family="IBM Plex Mono, monospace" font-size="6.5" font-weight="400" fill="#8B8D90" letter-spacing="0.15em">RECHTSANW&#xC4;LTIN &#xB7; LL.M.</text>
-              </svg>
+            <a href="#" aria-label="Eirini C. Lika - Startseite" style="display: flex; align-items: center; gap: 14px; text-decoration: none;">
+              <img src="../assets/ECL-Logo-White.svg" alt="ECL" style="height: 36px; width: auto;">
+              <span class="header__logo-text">
+                <span class="header__logo-name">EIRINI C. LIKA</span>
+                <span class="header__logo-sub">Rechtsanw&auml;ltin &middot; LL.M.</span>
+              </span>
             </a>
             <p class="footer__brand-desc">
               Spezialisierte Kanzlei f&uuml;r KI-Regulierung, Datenschutz und EU-Digitalrecht mit Sitz in M&uuml;nchen.

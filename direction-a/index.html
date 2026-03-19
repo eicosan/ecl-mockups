@@ -152,8 +152,38 @@
       padding: 0 24px;
     }
 
-    .logo svg {
-      display: block;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .logo__text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo__name {
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: #1B3A2D;
+    }
+
+    .logo__sub {
+      font-family: Inter, sans-serif;
+      font-size: 7px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: #5D5D5D;
+      text-transform: uppercase;
     }
 
     .nav-desktop {
@@ -868,6 +898,36 @@
 
     .footer-brand .footer-logo {
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-brand .footer-logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .footer-logo__text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer-logo__name {
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: #FAF9F7;
+    }
+
+    .footer-logo__sub {
+      font-family: Inter, sans-serif;
+      font-size: 7px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: rgba(250, 249, 247, 0.7);
+      text-transform: uppercase;
     }
 
     .footer-brand p {
@@ -1140,13 +1200,11 @@
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a href="#" class="logo" aria-label="Eirini C. Lika - Startseite">
-        <svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none">
-          <path d="M22 4C12 4 5 11 5 21s7 17 17 17c3 0 7-1 9-2" stroke="#B87333" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-          <path d="M28 8C24 5.5 19 5.5 15 8s-6 7-6 13c0 6 2 10 6 13" stroke="#B87333" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-          <text x="14" y="26" font-family="Playfair Display, Georgia, serif" font-size="15" font-weight="600" fill="#B87333" font-style="italic">L</text>
-          <text x="40" y="26" font-family="Inter, sans-serif" font-size="14" font-weight="300" fill="#1B3A2D" letter-spacing="0.15em">EIRINI C. LIKA</text>
-          <text x="40" y="36" font-family="Inter, sans-serif" font-size="7" font-weight="400" fill="#5D5D5D" letter-spacing="0.2em">RECHTSANW&#xC4;LTIN &#xB7; LL.M.</text>
-        </svg>
+        <img src="../assets/ECL-Logo-Black.svg" alt="ECL">
+        <span class="logo__text">
+          <span class="logo__name">EIRINI C. LIKA</span>
+          <span class="logo__sub">Rechtsanw&auml;ltin &middot; LL.M.</span>
+        </span>
       </a>
 
       <nav class="nav-desktop">
@@ -1460,13 +1518,11 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="footer-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" fill="none">
-              <path d="M22 4C12 4 5 11 5 21s7 17 17 17c3 0 7-1 9-2" stroke="#B87333" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-              <path d="M28 8C24 5.5 19 5.5 15 8s-6 7-6 13c0 6 2 10 6 13" stroke="#B87333" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-              <text x="14" y="26" font-family="Playfair Display, Georgia, serif" font-size="15" font-weight="600" fill="#B87333" font-style="italic">L</text>
-              <text x="40" y="26" font-family="Inter, sans-serif" font-size="14" font-weight="300" fill="#FAF9F7" letter-spacing="0.15em">EIRINI C. LIKA</text>
-              <text x="40" y="36" font-family="Inter, sans-serif" font-size="7" font-weight="400" fill="rgba(250,249,247,0.7)" letter-spacing="0.2em">RECHTSANW&#xC4;LTIN &#xB7; LL.M.</text>
-            </svg>
+            <img src="../assets/ECL-Logo-White.svg" alt="ECL">
+            <span class="footer-logo__text">
+              <span class="footer-logo__name">EIRINI C. LIKA</span>
+              <span class="footer-logo__sub">Rechtsanw&auml;ltin &middot; LL.M.</span>
+            </span>
           </div>
           <p>Spezialisierte Rechtsberatung an der Schnittstelle von K&uuml;nstlicher Intelligenz, Datenschutz und europ&auml;ischem Regulierungsrecht.</p>
         </div>
