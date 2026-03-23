@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eirini C. Lika-Gialouris LL.M. | Internationale Rechtsberatung f&uuml;r AI Governance &amp; Datenschutz</title>
+  <meta name="description" content="Internationale Rechtsberatung f&uuml;r AI Governance, Datenschutz und regulatorische Compliance. Zugelassen in drei Jurisdiktionen.">
+  <link rel="icon" type="image/svg+xml" href="../assets/ECL-Logo-Navy-trimmed.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ========================================
+       CSS Custom Properties — Palette 1: Gold & Navy (Default)
+       ======================================== */
+    :root {
+      --color-primary: #1B2A4A;
+      --color-accent: #C5A47E;
+      --color-accent-hover: #B8956D;
+      --color-bg: #FAF7F2;
+      --color-bg-alt: #F3EDE4;
+      --color-text: #1A1A1A;
+      --color-text-secondary: #5D5D5D;
+      --color-text-on-dark: #FAF7F2;
+      --color-border: #E5DED4;
+      --color-card-bg: #FFFFFF;
+
+      --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --max-width: 1200px;
+      --max-width-narrow: 800px;
+    }
+
+    /* ========================================
+       Reset & Base
+       ======================================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.7;
+      font-weight: 400;
+      overflow-x: hidden;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* ========================================
+       Utility
+       ======================================== */
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .container--narrow {
+      max-width: var(--max-width-narrow);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .accent-line {
+      width: 60px;
+      height: 1px;
+      background-color: var(--color-accent);
+      border: none;
+      transition: background-color 0.4s ease;
+    }
+
+    .accent-line--center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .accent-line--short {
+      width: 40px;
+    }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 24px;
+      transition: color 0.4s ease;
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Focus styles for accessibility */
+    :focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 3px;
+    }
+
+    /* ========================================
+       Header
+       ======================================== */
+    .header {
+      background-color: var(--color-bg);
+      padding: 28px 0 0 0;
+      position: relative;
+      z-index: 100;
+      transition: background-color 0.4s ease;
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 24px;
+    }
+
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .header__logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .header__logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header__logo-name {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--color-primary);
+      transition: color 0.4s ease;
+    }
+
+    .header__logo-sub {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--color-text-secondary);
+      text-transform: uppercase;
+      transition: color 0.4s ease;
+    }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .header__nav a {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--color-text-secondary);
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+
+    .header__nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--color-accent);
+      transition: width 0.3s ease, background-color 0.4s ease;
+    }
+
+    .header__nav a:hover {
+      color: var(--color-text);
+    }
+
+    .header__nav a:hover::after {
+      width: 100%;
+    }
+
+    .header__separator {
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-accent);
+      border: none;
+      transition: background-color 0.4s ease;
+    }
+
+    /* Mobile hamburger */
+    .header__hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .header__hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background-color: var(--color-accent);
+      transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.4s ease;
+    }
+
+    .header__hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 4px);
+    }
+
+    .header__hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .header__hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -4px);
+    }
+
+    /* Mobile nav overlay */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--color-bg);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease, background-color 0.4s ease;
+    }
+
+    .mobile-nav.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-nav a {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--color-text);
+      letter-spacing: 0.04em;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-nav a:hover {
+      color: var(--color-accent);
+    }
+
+    /* ========================================
+       Hero Section
+       ======================================== */
+    .hero {
+      padding: 140px 0 120px 0;
+      text-align: center;
+      background-color: var(--color-bg);
+      transition: background-color 0.4s ease;
+    }
+
+    .hero__line {
+      width: 60px;
+      height: 1px;
+      background-color: var(--color-accent);
+      margin: 0 auto 40px auto;
+      border: none;
+      transition: background-color 0.4s ease;
+    }
+
+    .hero__headline {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--color-text);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+      transition: color 0.4s ease;
+    }
+
+    .hero__rule {
+      width: 40px;
+      height: 1px;
+      background-color: var(--color-accent);
+      margin: 0 auto 28px auto;
+      border: none;
+      transition: background-color 0.4s ease;
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto 44px auto;
+      transition: color 0.4s ease;
+    }
+
+    .hero__cta {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      padding: 16px 40px;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.4s ease;
+    }
+
+    .hero__cta:hover {
+      background-color: var(--color-accent);
+      color: var(--color-bg);
+    }
+
+    /* ========================================
+       Pillars Section (3 Columns)
+       ======================================== */
+    .pillars {
+      padding: 100px 0;
+      background-color: var(--color-bg-alt);
+      transition: background-color 0.4s ease;
+    }
+
+    .pillars__header {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+
+    .pillars__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .pillar-card {
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      padding: 48px 36px 44px 36px;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.4s ease;
+    }
+
+    .pillar-card:hover {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border-color: var(--color-accent);
+    }
+
+    .pillar-card__icon {
+      width: 36px;
+      height: 36px;
+      margin-bottom: 24px;
+      color: var(--color-accent);
+      transition: color 0.4s ease;
+    }
+
+    .pillar-card__title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 16px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      transition: color 0.4s ease;
+    }
+
+    .pillar-card__desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+      margin-bottom: 28px;
+      transition: color 0.4s ease;
+    }
+
+    .pillar-card__services {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+      transition: border-color 0.4s ease;
+    }
+
+    .pillar-card__services li a {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease, gap 0.3s ease;
+    }
+
+    .pillar-card__services li a:hover {
+      color: var(--color-accent-hover);
+      gap: 12px;
+    }
+
+    .pillar-card__services li a::after {
+      content: '\2192';
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    /* ========================================
+       About Section
+       ======================================== */
+    .about {
+      padding: 100px 0;
+      background-color: var(--color-bg);
+      transition: background-color 0.4s ease;
+    }
+
+    .about__inner {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .about__photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background-color: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: background-color 0.4s ease, border-color 0.4s ease;
+    }
+
+    .about__photo-placeholder svg {
+      width: 40px;
+      height: 40px;
+      color: var(--color-border);
+      transition: color 0.4s ease;
+    }
+
+    .about__photo-placeholder span {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.04em;
+      transition: color 0.4s ease;
+    }
+
+    .about__content {
+      padding-top: 8px;
+    }
+
+    .about__name {
+      font-family: var(--font-display);
+      font-size: 38px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 6px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      transition: color 0.4s ease;
+    }
+
+    .about__title-line {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      color: var(--color-text-secondary);
+      margin-bottom: 32px;
+      transition: color 0.4s ease;
+    }
+
+    .about__bio {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--color-text-secondary);
+      margin-bottom: 32px;
+      transition: color 0.4s ease;
+    }
+
+    .about__credentials {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 36px;
+    }
+
+    .about__credentials li {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      padding-left: 20px;
+      position: relative;
+      letter-spacing: 0.02em;
+      transition: color 0.4s ease;
+    }
+
+    .about__credentials li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 1px;
+      background-color: var(--color-accent);
+      transition: background-color 0.4s ease;
+    }
+
+    .about__link {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s ease, gap 0.3s ease;
+    }
+
+    .about__link:hover {
+      color: var(--color-accent-hover);
+      gap: 12px;
+    }
+
+    /* ========================================
+       Jurisdictions
+       ======================================== */
+    .jurisdictions {
+      padding: 72px 0;
+      background-color: var(--color-bg-alt);
+      transition: background-color 0.4s ease;
+    }
+
+    .jurisdictions__inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .jurisdiction-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .jurisdiction-item__label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      transition: color 0.4s ease;
+    }
+
+    .jurisdiction-item__value {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--color-text);
+      transition: color 0.4s ease;
+    }
+
+    .jurisdictions__separator {
+      width: 1px;
+      height: 40px;
+      background-color: var(--color-border);
+      transition: background-color 0.4s ease;
+    }
+
+    /* ========================================
+       Made in Germany Badge
+       ======================================== */
+    .badge-section {
+      padding: 28px 0;
+      background-color: var(--color-bg);
+      text-align: center;
+      transition: background-color 0.4s ease;
+    }
+
+    .badge-section__text {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.04em;
+      transition: color 0.4s ease;
+    }
+
+    /* ========================================
+       Contact Section
+       ======================================== */
+    .contact {
+      padding: 100px 0;
+      background-color: var(--color-bg-alt);
+      text-align: center;
+      transition: background-color 0.4s ease;
+    }
+
+    .contact__line {
+      width: 60px;
+      height: 1px;
+      background-color: var(--color-accent);
+      margin: 0 auto 48px auto;
+      border: none;
+      transition: background-color 0.4s ease;
+    }
+
+    .contact__heading {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 20px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      transition: color 0.4s ease;
+    }
+
+    .contact__text {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      max-width: 520px;
+      margin: 0 auto 36px auto;
+      transition: color 0.4s ease;
+    }
+
+    .contact__email {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--color-text);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 2px;
+      transition: color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .contact__email:hover {
+      color: var(--color-accent);
+      border-color: var(--color-accent);
+    }
+
+    .contact__location {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-bottom: 40px;
+      letter-spacing: 0.04em;
+      transition: color 0.4s ease;
+    }
+
+    .contact__cta {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      padding: 14px 36px;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.4s ease;
+    }
+
+    .contact__cta:hover {
+      background-color: var(--color-accent);
+      color: var(--color-bg);
+    }
+
+    /* ========================================
+       Footer
+       ======================================== */
+    .footer {
+      background-color: var(--color-primary);
+      padding: 60px 0 40px 0;
+      position: relative;
+      transition: background-color 0.4s ease;
+    }
+
+    .footer__top-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-accent);
+      transition: background-color 0.4s ease;
+    }
+
+    .footer__logo {
+      margin-bottom: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer__logo img {
+      height: 36px;
+      width: auto;
+    }
+
+    .footer__logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .footer__logo-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--color-text-on-dark);
+      transition: color 0.4s ease;
+    }
+
+    .footer__logo-sub {
+      font-family: var(--font-body);
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: rgba(250, 247, 242, 0.6);
+      text-transform: uppercase;
+    }
+
+    .footer__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer__col-title {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(250, 247, 242, 0.5);
+      margin-bottom: 20px;
+    }
+
+    .footer__col a,
+    .footer__col p {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(250, 247, 242, 0.7);
+      line-height: 2;
+      transition: color 0.3s ease;
+    }
+
+    .footer__col a:hover {
+      color: var(--color-accent);
+    }
+
+    .footer__badge {
+      text-align: center;
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid rgba(250, 247, 242, 0.1);
+    }
+
+    .footer__badge-text {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(250, 247, 242, 0.45);
+      letter-spacing: 0.06em;
+    }
+
+    .footer__bottom {
+      border-top: 1px solid rgba(250, 247, 242, 0.1);
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .footer__copyright {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(250, 247, 242, 0.5);
+      letter-spacing: 0.04em;
+    }
+
+    .footer__disclaimer {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(250, 247, 242, 0.35);
+      text-align: center;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       Color Switcher Panel
+       ======================================== */
+    .color-switcher {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      font-family: var(--font-body);
+    }
+
+    .color-switcher__toggle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--color-primary);
+      border: 2px solid var(--color-accent);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, background-color 0.4s ease, border-color 0.4s ease;
+    }
+
+    .color-switcher__toggle:hover {
+      transform: scale(1.08);
+    }
+
+    .color-switcher__toggle svg {
+      width: 22px;
+      height: 22px;
+      color: var(--color-text-on-dark);
+      transition: color 0.4s ease;
+    }
+
+    .color-switcher__panel {
+      position: absolute;
+      bottom: 60px;
+      right: 0;
+      width: 280px;
+      background-color: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.4s ease, border-color 0.4s ease;
+    }
+
+    .color-switcher__panel.open {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .color-switcher__title {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: 20px;
+      transition: color 0.4s ease;
+    }
+
+    .color-switcher__options {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .color-switcher__option {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+      padding: 10px 12px;
+      border: 1px solid transparent;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+      background: none;
+      width: 100%;
+      text-align: left;
+    }
+
+    .color-switcher__option:hover {
+      background-color: var(--color-bg-alt);
+    }
+
+    .color-switcher__option.active {
+      border-color: var(--color-accent);
+      background-color: var(--color-bg);
+    }
+
+    .color-switcher__swatches {
+      display: flex;
+      gap: 0;
+      flex-shrink: 0;
+    }
+
+    .color-switcher__swatch {
+      width: 16px;
+      height: 28px;
+    }
+
+    .color-switcher__swatch:first-child {
+      border-radius: 3px 0 0 3px;
+    }
+
+    .color-switcher__swatch:last-child {
+      border-radius: 0 3px 3px 0;
+    }
+
+    .color-switcher__option-name {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text);
+      transition: color 0.4s ease;
+    }
+
+    /* ========================================
+       Responsive: Tablet
+       ======================================== */
+    @media (max-width: 768px) {
+      .container,
+      .container--narrow {
+        padding: 0 28px;
+      }
+
+      .header__nav {
+        display: none;
+      }
+
+      .header__hamburger {
+        display: flex;
+      }
+
+      .mobile-nav {
+        display: flex;
+      }
+
+      .hero {
+        padding: 100px 0 80px 0;
+      }
+
+      .hero__headline {
+        font-size: 38px;
+      }
+
+      .hero__subtitle {
+        font-size: 16px;
+      }
+
+      .pillars {
+        padding: 72px 0;
+      }
+
+      .pillars__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .about {
+        padding: 72px 0;
+      }
+
+      .about__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .about__photo-placeholder {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .jurisdictions__inner {
+        gap: 32px;
+      }
+
+      .jurisdictions__separator {
+        display: none;
+      }
+
+      .contact {
+        padding: 72px 0;
+      }
+
+      .contact__heading {
+        font-size: 34px;
+      }
+
+      .footer__inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .color-switcher {
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+
+    /* ========================================
+       Responsive: Mobile
+       ======================================== */
+    @media (max-width: 480px) {
+      .container,
+      .container--narrow {
+        padding: 0 20px;
+      }
+
+      .hero {
+        padding: 80px 0 64px 0;
+      }
+
+      .hero__headline {
+        font-size: 32px;
+      }
+
+      .hero__subtitle {
+        font-size: 15px;
+        margin-bottom: 36px;
+      }
+
+      .hero__cta {
+        padding: 14px 32px;
+        font-size: 12px;
+      }
+
+      .pillars {
+        padding: 56px 0;
+      }
+
+      .pillar-card {
+        padding: 36px 24px 32px 24px;
+      }
+
+      .pillar-card__title {
+        font-size: 22px;
+      }
+
+      .about {
+        padding: 56px 0;
+      }
+
+      .about__name {
+        font-size: 30px;
+      }
+
+      .about__bio {
+        font-size: 15px;
+      }
+
+      .jurisdictions {
+        padding: 48px 0;
+      }
+
+      .jurisdictions__inner {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .contact__heading {
+        font-size: 28px;
+      }
+
+      .contact__email {
+        font-size: 16px;
+      }
+
+      .contact__cta {
+        padding: 14px 28px;
+        font-size: 12px;
+      }
+
+      .footer__bottom {
+        text-align: center;
+      }
+
+      .color-switcher__panel {
+        width: 260px;
+        right: -8px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================================
+       Header
+       ======================================== -->
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="#" class="header__logo" aria-label="Eirini C. Lika-Gialouris &mdash; Startseite">
+          <img src="../assets/ECL-Logo-Navy-trimmed.svg" alt="ECL" class="header__logo-img">
+          <span class="header__logo-text">
+            <span class="header__logo-name">Eirini C. Lika-Gialouris</span>
+            <span class="header__logo-sub">Rechtsanw&auml;ltin &middot; Solicitor &middot; LL.M.</span>
+          </span>
+        </a>
+
+        <nav class="header__nav" aria-label="Hauptnavigation">
+          <a href="#kompetenzen">Kompetenzen</a>
+          <a href="#ueber-mich">&Uuml;ber mich</a>
+          <a href="#kontakt">Kontakt</a>
+        </nav>
+
+        <button class="header__hamburger" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <hr class="header__separator">
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Overlay -->
+  <nav class="mobile-nav" aria-label="Mobile Navigation">
+    <a href="#kompetenzen">Kompetenzen</a>
+    <a href="#ueber-mich">&Uuml;ber mich</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
+  <!-- ========================================
+       Hero Section
+       ======================================== -->
+  <section class="hero" aria-label="Willkommen">
+    <div class="container--narrow">
+      <div class="reveal">
+        <hr class="hero__line">
+        <h1 class="hero__headline">Klarheit schaffen, bevor Risiken entstehen.</h1>
+        <hr class="hero__rule">
+        <p class="hero__subtitle">Ich berate Unternehmen und F&uuml;hrungskr&auml;fte zu den rechtlichen Rahmenbedingungen von KI, Datenschutz und digitaler Regulierung &mdash; grenz&uuml;berschreitend, strukturiert und auf den Punkt.</p>
+        <a href="#kontakt" class="hero__cta">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       3 Pillars (Kernkompetenzen)
+       ======================================== -->
+  <section class="pillars" id="kompetenzen" aria-label="Kernkompetenzen">
+    <div class="container">
+      <div class="pillars__header reveal">
+        <hr class="accent-line accent-line--center">
+        <p class="section-label">Kernkompetenzen</p>
+      </div>
+
+      <div class="pillars__grid">
+        <!-- Pillar 1: Regulatory Governance -->
+        <div class="pillar-card reveal">
+          <svg class="pillar-card__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="4" width="28" height="28" rx="2"/>
+            <path d="M4 14h28M14 14v18M4 24h10"/>
+          </svg>
+          <h2 class="pillar-card__title">Regulatory Governance</h2>
+          <p class="pillar-card__desc">Ich berate Sie zur rechtssicheren Umsetzung regulatorischer Anforderungen &mdash; vom EU AI Act &uuml;ber die DSGVO bis hin zu sektorspezifischen Compliance-Vorgaben.</p>
+          <ul class="pillar-card__services">
+            <li><a href="#kompetenzen">KI-Recht &amp; EU AI Act</a></li>
+            <li><a href="#kompetenzen">Datenschutz &amp; IT-Recht</a></li>
+          </ul>
+        </div>
+
+        <!-- Pillar 2: Vertragsgestaltung -->
+        <div class="pillar-card reveal">
+          <svg class="pillar-card__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 4h14l8 8v20a2 2 0 01-2 2H8a2 2 0 01-2-2V6a2 2 0 012-2z"/>
+            <path d="M22 4v8h8M12 18h12M12 24h8"/>
+          </svg>
+          <h2 class="pillar-card__title">Vertragsgestaltung</h2>
+          <p class="pillar-card__desc">Ich gestalte Vertr&auml;ge, die technologische Realit&auml;ten abbilden und regulatorische Risiken antizipieren &mdash; von Lizenzvertr&auml;gen &uuml;ber SaaS-Agreements bis hin zu gesellschaftsrechtlichen Strukturen.</p>
+          <ul class="pillar-card__services">
+            <li><a href="#kompetenzen">Contract Drafting</a></li>
+            <li><a href="#kompetenzen">Gesellschafts- &amp; Handelsrecht</a></li>
+          </ul>
+        </div>
+
+        <!-- Pillar 3: Cross-Border Beratung -->
+        <div class="pillar-card reveal">
+          <svg class="pillar-card__icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="18" r="14"/>
+            <ellipse cx="18" cy="18" rx="7" ry="14"/>
+            <path d="M4 18h28M6 10h24M6 26h24"/>
+          </svg>
+          <h2 class="pillar-card__title">Cross-Border Beratung</h2>
+          <p class="pillar-card__desc">Ich begleite Sie bei grenz&uuml;berschreitenden Rechtsangelegenheiten im EU-, UK- und griechischen Recht &mdash; mit Zulassungen in drei Jurisdiktionen und in drei Sprachen.</p>
+          <ul class="pillar-card__services">
+            <li><a href="#kompetenzen">Grenz&uuml;berschreitende Rechtsberatung</a></li>
+            <li><a href="#kompetenzen">Private Mandate &amp; Vorsorgevollmachten</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       About Section
+       ======================================== -->
+  <section class="about" id="ueber-mich" aria-label="&Uuml;ber mich">
+    <div class="container">
+      <div class="about__inner">
+        <div class="about__photo-placeholder reveal">
+          <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="36" height="30" rx="2"/>
+            <circle cx="14" cy="16" r="4"/>
+            <path d="M38 30l-10-10-6 6-4-4-14 14"/>
+          </svg>
+          <span>Foto: Eirini C. Lika-Gialouris</span>
+        </div>
+        <div class="about__content reveal">
+          <hr class="accent-line" style="margin-bottom: 24px;">
+          <p class="section-label">&Uuml;ber mich</p>
+          <h2 class="about__name">Eirini C. Lika-Gialouris</h2>
+          <p class="about__title-line">Solicitor (England &amp; Wales) &middot; Rechtsanw&auml;ltin &middot; LL.M.</p>
+          <p class="about__bio">Als Solicitor (England &amp; Wales), Rechtsanw&auml;ltin (Griechenland) und zugelassen am Landgericht Frankfurt berate ich an der Schnittstelle von Technologie und Regulierung. Mein Fokus liegt auf der praktischen Umsetzung komplexer regulatorischer Anforderungen &mdash; insbesondere im Bereich KI-Governance, Datenschutz und grenz&uuml;berschreitende Compliance.</p>
+          <p class="about__bio">Ich verbinde juristische Pr&auml;zision mit einem tiefen Verst&auml;ndnis f&uuml;r technologische Zusammenh&auml;nge. Meine Mandanten sch&auml;tzen klare Sprache, strukturierte Beratung und einen ehrlichen Blick auf die Rechtslage.</p>
+          <ul class="about__credentials">
+            <li>Solicitor of England and Wales (SRA)</li>
+            <li>Zugelassene Rechtsanw&auml;ltin (&Delta;&iota;&kappa;&eta;&gamma;&omicron;&rho;&omicron;&sigmaf;) &mdash; RAK Athen</li>
+            <li>Zugelassen am Landgericht Frankfurt am Main</li>
+            <li>LL.M. Europ&auml;isches Recht &mdash; UCL London</li>
+            <li>LL.M. Wirtschaftsrecht &mdash; Goethe-Universit&auml;t Frankfurt</li>
+          </ul>
+          <a href="#" class="about__link">Mehr erfahren &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Jurisdictions / Internationale Reichweite
+       ======================================== -->
+  <section class="jurisdictions" aria-label="Internationale Reichweite">
+    <div class="container">
+      <div class="jurisdictions__inner reveal">
+        <div class="jurisdiction-item">
+          <span class="jurisdiction-item__label">Jurisdiktionen</span>
+          <span class="jurisdiction-item__value">EU &middot; UK &middot; Griechenland</span>
+        </div>
+        <div class="jurisdictions__separator" aria-hidden="true"></div>
+        <div class="jurisdiction-item">
+          <span class="jurisdiction-item__label">Sprachen</span>
+          <span class="jurisdiction-item__value">Deutsch &middot; Englisch &middot; Griechisch</span>
+        </div>
+        <div class="jurisdictions__separator" aria-hidden="true"></div>
+        <div class="jurisdiction-item">
+          <span class="jurisdiction-item__label">Standort</span>
+          <span class="jurisdiction-item__value">Frankfurt am Main</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Made in Germany Badge
+       ======================================== -->
+  <section class="badge-section" aria-label="Hosting-Information">
+    <div class="container">
+      <p class="badge-section__text reveal">&#x1F1E9;&#x1F1EA; 100&nbsp;% gehostet und verarbeitet in Deutschland</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Contact Section
+       ======================================== -->
+  <section class="contact" id="kontakt" aria-label="Kontakt">
+    <div class="container--narrow">
+      <div class="reveal">
+        <hr class="contact__line">
+        <h2 class="contact__heading">Ich freue mich auf Ihre Nachricht.</h2>
+        <p class="contact__text">Sie haben Fragen oder m&ouml;chten ein Anliegen besprechen? Schreiben Sie mir &mdash; ich melde mich zeitnah bei Ihnen.</p>
+        <a href="mailto:kontakt@eiriniclika.com" class="contact__email">kontakt@eiriniclika.com</a>
+        <p class="contact__location">Frankfurt am Main, Deutschland</p>
+        <a href="mailto:kontakt@eiriniclika.com" class="contact__cta">Gespr&auml;ch vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       Footer
+       ======================================== -->
+  <footer class="footer">
+    <div class="footer__top-line"></div>
+    <div class="container">
+      <div class="footer__logo">
+        <img src="../assets/ECL-Logo-White-trimmed.svg" alt="ECL" class="footer__logo-img">
+        <span class="footer__logo-text">
+          <span class="footer__logo-name">Eirini C. Lika-Gialouris</span>
+          <span class="footer__logo-sub">Rechtsanw&auml;ltin &middot; Solicitor &middot; LL.M.</span>
+        </span>
+      </div>
+
+      <div class="footer__inner">
+        <div class="footer__col">
+          <p class="footer__col-title">Kompetenzen</p>
+          <a href="#kompetenzen">KI-Recht &amp; EU AI Act</a>
+          <a href="#kompetenzen">Datenschutz &amp; IT-Recht</a>
+          <a href="#kompetenzen">Vertragsgestaltung</a>
+          <a href="#kompetenzen">Gesellschafts- &amp; Handelsrecht</a>
+          <a href="#kompetenzen">Grenz&uuml;berschreitende Rechtsberatung</a>
+          <a href="#kompetenzen">Private Mandate &amp; Vorsorgevollmachten</a>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Kontakt</p>
+          <a href="mailto:kontakt@eiriniclika.com">kontakt@eiriniclika.com</a>
+          <p>Frankfurt am Main, Deutschland</p>
+          <p>&nbsp;</p>
+          <p class="footer__col-title" style="margin-bottom: 0;">Berufszulassungen</p>
+          <p>Solicitor (England &amp; Wales)</p>
+          <p>Rechtsanw&auml;ltin (Griechenland)</p>
+          <p>Zugelassen am LG Frankfurt</p>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Rechtliches</p>
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutzerkl&auml;rung</a>
+          <a href="#">Disclaimer</a>
+        </div>
+      </div>
+
+      <div class="footer__badge">
+        <p class="footer__badge-text">&#x1F1E9;&#x1F1EA; 100&nbsp;% gehostet und verarbeitet in Deutschland</p>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 Eirini C. Lika-Gialouris LL.M.</p>
+        <p class="footer__disclaimer">Diese Website dient ausschlie&szlig;lich der allgemeinen Information und stellt keine Rechtsberatung dar.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================
+       Color Switcher
+       ======================================== -->
+  <div class="color-switcher" role="region" aria-label="Farbpaletten-Auswahl">
+    <div class="color-switcher__panel" id="colorPanel">
+      <p class="color-switcher__title">Farbpalette</p>
+      <div class="color-switcher__options">
+        <!-- Palette 1 -->
+        <button class="color-switcher__option active" data-palette="gold-navy" aria-label="Gold &amp; Navy">
+          <span class="color-switcher__swatches">
+            <span class="color-switcher__swatch" style="background-color: #1B2A4A;"></span>
+            <span class="color-switcher__swatch" style="background-color: #C5A47E;"></span>
+            <span class="color-switcher__swatch" style="background-color: #FAF7F2;"></span>
+          </span>
+          <span class="color-switcher__option-name">Gold &amp; Navy</span>
+        </button>
+        <!-- Palette 2 -->
+        <button class="color-switcher__option" data-palette="olive-atelier" aria-label="Olive Atelier">
+          <span class="color-switcher__swatches">
+            <span class="color-switcher__swatch" style="background-color: #1B2A4A;"></span>
+            <span class="color-switcher__swatch" style="background-color: #6B705C;"></span>
+            <span class="color-switcher__swatch" style="background-color: #FAF7F2;"></span>
+          </span>
+          <span class="color-switcher__option-name">Olive Atelier</span>
+        </button>
+        <!-- Palette 3 -->
+        <button class="color-switcher__option" data-palette="olive-warm" aria-label="Olive Warm">
+          <span class="color-switcher__swatches">
+            <span class="color-switcher__swatch" style="background-color: #4A5240;"></span>
+            <span class="color-switcher__swatch" style="background-color: #8A7E6B;"></span>
+            <span class="color-switcher__swatch" style="background-color: #FAF7F2;"></span>
+          </span>
+          <span class="color-switcher__option-name">Olive Warm</span>
+        </button>
+        <!-- Palette 4 -->
+        <button class="color-switcher__option" data-palette="navy-olive" aria-label="Navy &amp; Olive Klassisch">
+          <span class="color-switcher__swatches">
+            <span class="color-switcher__swatch" style="background-color: #1B2A4A;"></span>
+            <span class="color-switcher__swatch" style="background-color: #6B705C;"></span>
+            <span class="color-switcher__swatch" style="background-color: #F7F5F2;"></span>
+          </span>
+          <span class="color-switcher__option-name">Navy &amp; Olive Klassisch</span>
+        </button>
+      </div>
+    </div>
+    <button class="color-switcher__toggle" id="colorToggle" aria-label="Farbpalette wechseln" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <circle cx="12" cy="8" r="2" fill="currentColor"/>
+        <circle cx="8" cy="14" r="2" fill="currentColor"/>
+        <circle cx="16" cy="14" r="2" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ========================================
+       JavaScript
+       ======================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ----------------------------------------
+         Palette Definitions
+         ---------------------------------------- */
+      var palettes = {
+        'gold-navy': {
+          '--color-primary': '#1B2A4A',
+          '--color-accent': '#C5A47E',
+          '--color-accent-hover': '#B8956D',
+          '--color-bg': '#FAF7F2',
+          '--color-bg-alt': '#F3EDE4',
+          '--color-text': '#1A1A1A',
+          '--color-text-secondary': '#5D5D5D',
+          '--color-text-on-dark': '#FAF7F2',
+          '--color-border': '#E5DED4',
+          '--color-card-bg': '#FFFFFF'
+        },
+        'olive-atelier': {
+          '--color-primary': '#1B2A4A',
+          '--color-accent': '#6B705C',
+          '--color-accent-hover': '#5A5E4D',
+          '--color-bg': '#FAF7F2',
+          '--color-bg-alt': '#F0EDE6',
+          '--color-text': '#1A1A1A',
+          '--color-text-secondary': '#5D5D5D',
+          '--color-text-on-dark': '#FAF7F2',
+          '--color-border': '#D6D3CA',
+          '--color-card-bg': '#FFFFFF'
+        },
+        'olive-warm': {
+          '--color-primary': '#4A5240',
+          '--color-accent': '#8A7E6B',
+          '--color-accent-hover': '#7A6E5B',
+          '--color-bg': '#FAF7F2',
+          '--color-bg-alt': '#F2EEE6',
+          '--color-text': '#1A1A1A',
+          '--color-text-secondary': '#5D5D5D',
+          '--color-text-on-dark': '#FAF7F2',
+          '--color-border': '#DDD8CE',
+          '--color-card-bg': '#FFFFFF'
+        },
+        'navy-olive': {
+          '--color-primary': '#1B2A4A',
+          '--color-accent': '#6B705C',
+          '--color-accent-hover': '#5A5E4D',
+          '--color-bg': '#F7F5F2',
+          '--color-bg-alt': '#EDEAE5',
+          '--color-text': '#1A1A1A',
+          '--color-text-secondary': '#5D5D5D',
+          '--color-text-on-dark': '#F7F5F2',
+          '--color-border': '#D6D3CB',
+          '--color-card-bg': '#FFFFFF'
+        }
+      };
+
+      // Logo mapping: which logo SVG to use per palette
+      var logoMap = {
+        'gold-navy': { header: '../assets/ECL-Logo-Navy-trimmed.svg', footer: '../assets/ECL-Logo-White-trimmed.svg' },
+        'olive-atelier': { header: '../assets/ECL-Logo-Navy-trimmed.svg', footer: '../assets/ECL-Logo-White-trimmed.svg' },
+        'olive-warm': { header: '../assets/ECL-Logo-Olive-trimmed.svg', footer: '../assets/ECL-Logo-White-trimmed.svg' },
+        'navy-olive': { header: '../assets/ECL-Logo-Navy-trimmed.svg', footer: '../assets/ECL-Logo-White-trimmed.svg' }
+      };
+
+      /* ----------------------------------------
+         Apply Palette
+         ---------------------------------------- */
+      function applyPalette(name) {
+        var palette = palettes[name];
+        if (!palette) return;
+
+        var root = document.documentElement;
+        Object.keys(palette).forEach(function (key) {
+          root.style.setProperty(key, palette[key]);
+        });
+
+        // Update logos
+        var logos = logoMap[name];
+        var headerLogo = document.querySelector('.header__logo-img');
+        var footerLogo = document.querySelector('.footer__logo-img');
+        if (headerLogo && logos) headerLogo.src = logos.header;
+        if (footerLogo && logos) footerLogo.src = logos.footer;
+
+        // Update favicon
+        var favicon = document.querySelector('link[rel="icon"]');
+        if (favicon && logos) favicon.href = logos.header;
+
+        // Mark active option
+        var options = document.querySelectorAll('.color-switcher__option');
+        options.forEach(function (opt) {
+          opt.classList.toggle('active', opt.getAttribute('data-palette') === name);
+        });
+      }
+
+      /* ----------------------------------------
+         Color Switcher Toggle
+         ---------------------------------------- */
+      function initColorSwitcher() {
+        var toggle = document.getElementById('colorToggle');
+        var panel = document.getElementById('colorPanel');
+        var options = document.querySelectorAll('.color-switcher__option');
+
+        toggle.addEventListener('click', function () {
+          var isOpen = panel.classList.contains('open');
+          panel.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', !isOpen);
+        });
+
+        options.forEach(function (opt) {
+          opt.addEventListener('click', function () {
+            var name = this.getAttribute('data-palette');
+            applyPalette(name);
+          });
+        });
+
+        // Close panel when clicking outside
+        document.addEventListener('click', function (e) {
+          if (!e.target.closest('.color-switcher')) {
+            panel.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      /* ----------------------------------------
+         Scroll Reveal
+         ---------------------------------------- */
+      function initScrollReveal() {
+        var reveals = document.querySelectorAll('.reveal');
+
+        if (!('IntersectionObserver' in window)) {
+          reveals.forEach(function (el) {
+            el.classList.add('visible');
+          });
+          return;
+        }
+
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.12,
+            rootMargin: '0px 0px -40px 0px'
+          }
+        );
+
+        reveals.forEach(function (el) {
+          observer.observe(el);
+        });
+      }
+
+      /* ----------------------------------------
+         Mobile Navigation
+         ---------------------------------------- */
+      function initMobileNav() {
+        var hamburger = document.querySelector('.header__hamburger');
+        var mobileNav = document.querySelector('.mobile-nav');
+        var mobileLinks = mobileNav.querySelectorAll('a');
+
+        if (!hamburger || !mobileNav) return;
+
+        hamburger.addEventListener('click', function () {
+          var isOpen = mobileNav.classList.contains('open');
+          mobileNav.classList.toggle('open');
+          hamburger.classList.toggle('active');
+          hamburger.setAttribute('aria-expanded', !isOpen);
+          document.body.style.overflow = isOpen ? '' : 'hidden';
+        });
+
+        mobileLinks.forEach(function (link) {
+          link.addEventListener('click', function () {
+            mobileNav.classList.remove('open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      /* ----------------------------------------
+         Smooth Scroll
+         ---------------------------------------- */
+      function initSmoothScroll() {
+        var anchors = document.querySelectorAll('a[href^="#"]');
+
+        anchors.forEach(function (anchor) {
+          anchor.addEventListener('click', function (e) {
+            var targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            var target = document.querySelector(targetId);
+            if (!target) return;
+
+            e.preventDefault();
+
+            var headerOffset = 40;
+            var elementPosition = target.getBoundingClientRect().top;
+            var offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          });
+        });
+      }
+
+      /* ----------------------------------------
+         Initialize
+         ---------------------------------------- */
+      document.addEventListener('DOMContentLoaded', function () {
+        initScrollReveal();
+        initMobileNav();
+        initSmoothScroll();
+        initColorSwitcher();
+      });
+    })();
+  </script>
+
+</body>
+</html>
