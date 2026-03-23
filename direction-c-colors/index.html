@@ -379,7 +379,7 @@
        ======================================== */
     .philosophy {
       background-color: var(--bg-cream-dark);
-      padding: 120px 0;
+      padding: 140px 0;
       position: relative;
       overflow: hidden;
     }
@@ -404,13 +404,13 @@
 
     .philosophy__quote {
       font-family: var(--font-display);
-      font-size: 32px;
+      font-size: 36px;
       font-weight: 400;
       font-style: italic;
       line-height: 1.5;
       color: var(--text-primary);
       text-align: center;
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto 32px auto;
     }
 
@@ -451,13 +451,14 @@
     .pillar-card {
       background-color: var(--color-card-bg, #FFFFFF);
       border: 1px solid var(--border);
-      padding: 44px 32px 40px 32px;
-      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+      border-top: 3px solid var(--color-accent, var(--accent-gold));
+      padding: 52px 36px 48px 36px;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     }
 
     .pillar-card:hover {
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-      border-color: var(--accent-gold);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
     }
 
     .pillar-card__icon {
@@ -657,6 +658,19 @@
       padding-top: 6px;
     }
 
+    .publications__tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background-color: rgba(197, 164, 126, 0.12);
+      padding: 4px 10px;
+      margin-bottom: 4px;
+    }
+
     .publications__content {
       display: flex;
       flex-direction: column;
@@ -733,18 +747,30 @@
     }
 
     .contact__email {
-      display: block;
+      display: inline-block;
       font-family: var(--font-body);
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--text-primary);
-      margin-bottom: 8px;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--accent-gold);
+      margin-bottom: 12px;
       letter-spacing: 0.02em;
-      transition: color 0.3s ease;
+      border-bottom: 1px solid var(--accent-gold);
+      padding-bottom: 2px;
+      transition: opacity 0.3s ease;
     }
 
     .contact__email:hover {
-      color: var(--accent-gold);
+      opacity: 0.7;
+    }
+
+    .contact__phone {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      letter-spacing: 0.02em;
     }
 
     .contact__location {
@@ -752,7 +778,7 @@
       font-size: 14px;
       font-weight: 400;
       color: var(--text-muted);
-      margin-bottom: 48px;
+      margin-bottom: 6px;
       letter-spacing: 0.04em;
     }
 
@@ -1358,7 +1384,7 @@
         <p class="hero__label">Internationale Rechtsberatung</p>
         <h1 class="hero__headline">Klarheit schaffen, bevor<br>Risiken entstehen.</h1>
         <hr class="hero__rule">
-        <p class="hero__subtitle">Ich berate Unternehmen und F&uuml;hrungskr&auml;fte zu den rechtlichen Rahmenbedingungen von KI, Datenschutz und digitaler Regulierung &mdash; grenz&uuml;berschreitend, strukturiert und auf den Punkt.</p>
+        <p class="hero__subtitle">Ich berate Unternehmen und F&uuml;hrungskr&auml;fte zu den rechtlichen Rahmenbedingungen von KI, Datenschutz und digitaler Regulierung.</p>
         <a href="#kontakt" class="hero__cta">Kontakt aufnehmen</a>
       </div>
     </div>
@@ -1370,7 +1396,7 @@
   <section class="philosophy" aria-label="Philosophie">
     <div class="container--narrow reveal">
       <p class="philosophy__quote">
-        Mein Anspruch: Rechtsberatung, die Klarheit schafft&nbsp;&mdash; &uuml;ber Jurisdiktionen, Technologien und regulatorische Anforderungen hinweg.
+        Mein Anspruch: Rechtsberatung, die Klarheit schafft&nbsp;&mdash;<br>&uuml;ber Jurisdiktionen, Technologien und regulatorische Anforderungen hinweg.
       </p>
     </div>
   </section>
@@ -1389,8 +1415,8 @@
         <!-- Pillar 1: Regulatory Governance -->
         <div class="pillar-card reveal">
           <svg class="pillar-card__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="26" height="26" rx="2"/>
-            <path d="M3 12h26M12 12v17M3 22h9"/>
+            <path d="M16 2L4 8v8c0 7.5 5.1 14.5 12 16 6.9-1.5 12-8.5 12-16V8L16 2z"/>
+            <path d="M11 16l3 3 7-7"/>
           </svg>
           <h2 class="pillar-card__title">Regulatory Governance</h2>
           <p class="pillar-card__desc">Ich berate Sie zur rechtssicheren Umsetzung regulatorischer Anforderungen &mdash; vom EU AI Act &uuml;ber die DSGVO bis hin zu sektorspezifischen Compliance-Vorgaben.</p>
@@ -1469,6 +1495,7 @@
         <article class="publications__entry reveal">
           <time class="publications__date" datetime="2026-02-15">15. Februar 2026</time>
           <div class="publications__content">
+            <span class="publications__tag">EU AI Act</span>
             <h3 class="publications__title">Der EU AI Act tritt in Kraft</h3>
             <p class="publications__excerpt">Ein Leitfaden zu den wichtigsten Pflichten und &Uuml;bergangsfristen f&uuml;r Unternehmen.</p>
           </div>
@@ -1477,6 +1504,7 @@
         <article class="publications__entry reveal">
           <time class="publications__date" datetime="2026-01-28">28. Januar 2026</time>
           <div class="publications__content">
+            <span class="publications__tag">Datenschutz</span>
             <h3 class="publications__title">DSGVO-Bu&szlig;gelder 2025</h3>
             <p class="publications__excerpt">Analyse der bedeutendsten Durchsetzungsma&szlig;nahmen und Lehren f&uuml;r die Compliance-Praxis.</p>
           </div>
@@ -1485,6 +1513,7 @@
         <article class="publications__entry reveal">
           <time class="publications__date" datetime="2026-01-10">10. Januar 2026</time>
           <div class="publications__content">
+            <span class="publications__tag">AI Governance</span>
             <h3 class="publications__title">KI-Governance im Mittelstand</h3>
             <p class="publications__excerpt">Ein praxisorientiertes Framework f&uuml;r den verantwortungsvollen Einsatz von KI.</p>
           </div>
@@ -1506,7 +1535,8 @@
         <p class="contact__text">Sie haben Fragen oder m&ouml;chten ein Anliegen besprechen? Schreiben Sie mir &mdash; ich melde mich zeitnah bei Ihnen.</p>
         <a href="mailto:kontakt@eiriniclika.com" class="contact__email">kontakt@eiriniclika.com</a>
         <p class="contact__location">Frankfurt am Main, Deutschland</p>
-        <a href="mailto:kontakt@eiriniclika.com" class="contact__cta">Gespr&auml;ch vereinbaren</a>
+        <span class="contact__phone">+49 (0) 69 123 456 78</span>
+        <a href="mailto:kontakt@eiriniclika.com" class="contact__cta">Erstgespr&auml;ch vereinbaren</a>
       </div>
     </div>
   </section>
@@ -1528,12 +1558,15 @@
       <div class="footer__inner">
         <div class="footer__col">
           <p class="footer__col-title">Kompetenzen</p>
-          <a href="#kompetenzen">KI-Recht &amp; EU AI Act</a>
-          <a href="#kompetenzen">Datenschutz &amp; IT-Recht</a>
-          <a href="#kompetenzen">Vertragsgestaltung</a>
-          <a href="#kompetenzen">Gesellschafts- &amp; Handelsrecht</a>
-          <a href="#kompetenzen">Grenz&uuml;berschreitende Rechtsberatung</a>
-          <a href="#kompetenzen">Private Mandate &amp; Vorsorgevollmachten</a>
+          <p style="color: rgba(250,247,242,0.85); font-size: 14px; line-height: 1.6; margin-bottom: 4px;">Regulatory Governance</p>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">KI-Recht &amp; EU AI Act</a>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Datenschutz &amp; IT-Recht</a>
+          <p style="color: rgba(250,247,242,0.85); font-size: 14px; line-height: 1.6; margin-bottom: 4px; margin-top: 8px;">Vertragsgestaltung</p>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Contract Drafting</a>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Gesellschafts- &amp; Handelsrecht</a>
+          <p style="color: rgba(250,247,242,0.85); font-size: 14px; line-height: 1.6; margin-bottom: 4px; margin-top: 8px;">Cross-Border Beratung</p>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Grenz&uuml;berschreitende Rechtsberatung</a>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Private Mandate &amp; Vorsorgevollmachten</a>
         </div>
         <div class="footer__col">
           <p class="footer__col-title">Kontakt</p>
