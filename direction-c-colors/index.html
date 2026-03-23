@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Eirini C. Lika-Gialouris LL.M. | Internationale Rechtsberatung f&uuml;r AI Governance &amp; Datenschutz</title>
   <meta name="description" content="Internationale Rechtsberatung f&uuml;r AI Governance, Datenschutz und regulatorische Compliance. Zugelassen in drei Jurisdiktionen.">
-  <link rel="icon" type="image/svg+xml" href="../assets/ECL-Logo-Navy-trimmed.svg">
+  <link rel="icon" type="image/png" href="../assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -888,6 +888,7 @@
     .footer__logo img {
       height: 36px;
       width: auto;
+      filter: brightness(0.96) sepia(0.15);
     }
 
     .footer__logo-text {
@@ -900,7 +901,7 @@
       font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.12em;
-      color: var(--color-bg);
+      color: #F5F0E8;
     }
 
     .footer__logo-sub {
@@ -908,7 +909,7 @@
       font-size: 9px;
       font-weight: 400;
       letter-spacing: 0.2em;
-      color: rgba(250, 247, 242, 0.6);
+      color: rgba(245, 240, 232, 0.6);
       text-transform: uppercase;
     }
 
@@ -1726,7 +1727,7 @@
         if (headerLogo && logos) headerLogo.src = logos.header;
         if (footerLogo && logos) footerLogo.src = logos.footer;
         var favicon = document.querySelector('link[rel="icon"]');
-        if (favicon && logos) favicon.href = logos.header;
+        if (favicon) favicon.href = '../assets/favicon.png';
         var options = document.querySelectorAll('.color-switcher__option');
         options.forEach(function (opt) {
           opt.classList.toggle('active', opt.getAttribute('data-palette') === name);
