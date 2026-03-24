@@ -442,9 +442,9 @@
 
     .pillars__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      max-width: 1100px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1200px;
       margin: 0 auto;
     }
 
@@ -452,7 +452,7 @@
       background-color: var(--color-card-bg, #FFFFFF);
       border: 1px solid var(--border);
       border-top: 3px solid var(--color-accent, var(--accent-gold));
-      padding: 60px 36px 56px 36px;
+      padding: 44px 28px 40px 28px;
       transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
     }
 
@@ -972,7 +972,7 @@
       }
 
       .pillars__grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 24px;
       }
 
@@ -1067,6 +1067,10 @@
 
       .philosophy__quote {
         font-size: 22px;
+      }
+
+      .pillars__grid {
+        grid-template-columns: 1fr;
       }
 
       .pillar-card {
@@ -1441,18 +1445,33 @@
           </ul>
         </div>
 
-        <!-- Pillar 3: Cross-Border Beratung -->
+        <!-- Pillar 3: Cross-Border Advisory -->
         <div class="pillar-card reveal">
           <svg class="pillar-card__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="16" cy="16" r="13"/>
             <ellipse cx="16" cy="16" rx="6" ry="13"/>
             <path d="M3 16h26M5 9h22M5 23h22"/>
           </svg>
-          <h2 class="pillar-card__title">Cross-Border Beratung</h2>
-          <p class="pillar-card__desc">Ich begleite Sie bei grenz&uuml;berschreitenden Rechtsangelegenheiten im EU-, UK- und griechischen Recht &mdash; mit Zulassungen in drei Jurisdiktionen und in drei Sprachen.</p>
+          <h2 class="pillar-card__title">Cross-Border Advisory</h2>
+          <p class="pillar-card__desc">Ich begleite Sie bei grenz&uuml;berschreitenden Unternehmenstransaktionen und regulatorischen Strukturierungen im EU-, UK- und griechischen Recht.</p>
           <ul class="pillar-card__services">
-            <li><a href="#kompetenzen">Grenz&uuml;berschreitende Rechtsberatung</a></li>
-            <li><a href="#kompetenzen">Private Mandate &amp; Vorsorgevollmachten</a></li>
+            <li><a href="#kompetenzen">Grenz&uuml;berschreitende Rechtsberatung B2B</a></li>
+          </ul>
+        </div>
+
+        <!-- Pillar 4: Private & International -->
+        <div class="pillar-card reveal">
+          <svg class="pillar-card__icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="11" r="5"/>
+            <path d="M5 27c0-6 5-10 11-10s11 4 11 10"/>
+            <path d="M22 5l3 3-3 3"/>
+          </svg>
+          <h2 class="pillar-card__title">Private &amp; International</h2>
+          <p class="pillar-card__desc">Ich berate Privatpersonen bei internationalen Rechtsangelegenheiten &mdash; von der Expat-Beratung &uuml;ber Vorsorgevollmachten bis hin zu grenz&uuml;berschreitenden Nachlassregelungen.</p>
+          <ul class="pillar-card__services">
+            <li><a href="#kompetenzen">Expat-Beratung</a></li>
+            <li><a href="#kompetenzen">Vorsorge &amp; Nachfolge</a></li>
+            <li><a href="#kompetenzen">Grenz&uuml;berschreitende Privatmandate</a></li>
           </ul>
         </div>
       </div>
@@ -1559,14 +1578,17 @@
         <div class="footer__col">
           <p class="footer__col-title">Kompetenzen</p>
           <p style="color: rgba(250,247,242,0.85); font-size: 14px; font-weight: 500; line-height: 1.6; margin-bottom: 4px;">Regulatory Governance</p>
-          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">KI-Recht &amp; EU AI Act</a>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">AI-Recht &amp; EU AI Act</a>
           <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Datenschutz &amp; IT-Recht</a>
           <p style="color: rgba(250,247,242,0.85); font-size: 14px; font-weight: 500; line-height: 1.6; margin-bottom: 4px; margin-top: 8px;">Vertragsgestaltung</p>
           <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Contract Drafting</a>
           <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Gesellschafts- &amp; Handelsrecht</a>
-          <p style="color: rgba(250,247,242,0.85); font-size: 14px; font-weight: 500; line-height: 1.6; margin-bottom: 4px; margin-top: 8px;">Cross-Border Beratung</p>
-          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Grenz&uuml;berschreitende Rechtsberatung</a>
-          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Private Mandate &amp; Vorsorgevollmachten</a>
+          <p style="color: rgba(250,247,242,0.85); font-size: 14px; font-weight: 500; line-height: 1.6; margin-bottom: 4px; margin-top: 8px;">Cross-Border Advisory</p>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Grenz&uuml;berschreitende Rechtsberatung B2B</a>
+          <p style="color: rgba(250,247,242,0.85); font-size: 14px; font-weight: 500; line-height: 1.6; margin-bottom: 4px; margin-top: 8px;">Private &amp; International</p>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Expat-Beratung</a>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Vorsorge &amp; Nachfolge</a>
+          <a href="#kompetenzen" style="padding-left: 12px; font-size: 13px;">Grenz&uuml;berschreitende Privatmandate</a>
         </div>
         <div class="footer__col">
           <p class="footer__col-title">Kontakt</p>
